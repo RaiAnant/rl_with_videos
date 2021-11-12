@@ -51,7 +51,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
             eval_render_mode (`str`): Mode to render evaluation rollouts in.
                 None to disable rendering.
         """
-        self.sampler = sampler
+        self.sampler = sampler  #class: SimpleSampler. Path = C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\samplers\simple_sampler.py
 
         self._n_epochs = n_epochs
         self._n_train_repeat = n_train_repeat
@@ -60,7 +60,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
         self._train_every_n_steps = train_every_n_steps
         self._epoch_length = epoch_length
         self._n_initial_exploration_steps = n_initial_exploration_steps
-        self._initial_exploration_policy = initial_exploration_policy
+        self._initial_exploration_policy = initial_exploration_policy  #class: UniformPolicy. Path = C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\policies\uniform_policy.py
 
         self._eval_n_episodes = eval_n_episodes
         self._eval_deterministic = eval_deterministic

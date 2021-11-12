@@ -203,11 +203,11 @@ Number of total trials (including samples/seeds): {total_number_of_trials}
 
 def run_example_local(example_module_name, example_argv, local_mode=False):
     """Run example locally, potentially parallelizing across cpus/gpus."""
-    example_module = importlib.import_module(example_module_name)
+    example_module = importlib.import_module(example_module_name) # example_module = <module 'examples.run_rl' from 'C:\\Users\\Anant Rai\\Repositories\\rl_with_videos\\examples\\run_rl\\__init__.py'>
 
     example_args = example_module.get_parser().parse_args(example_argv)
     variant_spec = example_module.get_variant_spec(example_args)
-    trainable_class = example_module.get_trainable_class(example_args)
+    trainable_class = example_module.get_trainable_class(example_args)  # trainable_class = <class 'examples.run_rl.main.ExperimentRunnerRL'>
 
     experiment_kwargs = generate_experiment_kwargs(variant_spec, example_args)
     print("experiment kwargs:", experiment_kwargs)
@@ -225,7 +225,7 @@ def run_example_local(example_module_name, example_argv, local_mode=False):
         temp_dir=temp_dir)
 
     tune.run(
-        trainable_class,
+        trainable_class,    #option to add multiple classes with different parameters for running multiple experiments
         **experiment_kwargs,
         with_server=example_args.with_server,
         server_port=example_args.server_port,

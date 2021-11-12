@@ -1,9 +1,8 @@
-import tensorflow as tf 
+import tensorflow as tf
 import tensorflow_probability as tfp
 import numpy as np
- 
-from collections import OrderedDict
 
+from collections import OrderedDict
 
 from rl_with_videos.algorithms.sac import SAC
 from rl_with_videos.models.utils import flatten_input_structure
@@ -51,7 +50,6 @@ class RLV(SAC):
 
         self._preprocessor_for_inverse = preprocessor_for_inverse
 
-
         super(RLV, self).__init__(**kwargs)
 
     def _build(self):
@@ -74,12 +72,12 @@ class RLV(SAC):
     def _init_placeholders(self):
         action_conditioned_placeholders = {
             'observations_no_aug': tf.placeholder(tf.float32,
-                                           shape=(None, *self._observation_shape),
-                                           name="observation_no_aug")
+                                                  shape=(None, *self._observation_shape),
+                                                  name="observation_no_aug")
             ,
             'next_observations_no_aug': tf.placeholder(tf.float32,
-                                                shape=(None, *self._observation_shape),
-                                                name="next_observation_no_aug"),
+                                                       shape=(None, *self._observation_shape),
+                                                       name="next_observation_no_aug"),
             'actions': tf.placeholder(
                 dtype=tf.float32,
                 shape=(None, *self._action_shape),
@@ -101,12 +99,12 @@ class RLV(SAC):
         }
         action_free_placeholders = {
             'observations_no_aug': tf.placeholder(tf.float32,
-                                           shape=(None, *self._observation_shape),
-                                           name="observation_no_aug")
+                                                  shape=(None, *self._observation_shape),
+                                                  name="observation_no_aug")
             ,
             'next_observations_no_aug': tf.placeholder(tf.float32,
-                                                shape=(None, *self._observation_shape),
-                                                name="next_observation_no_aug"),
+                                                       shape=(None, *self._observation_shape),
+                                                       name="next_observation_no_aug"),
             'rewards': tf.placeholder(
                 tf.float32,
                 shape=(None, 1),
@@ -130,36 +128,32 @@ class RLV(SAC):
                 name='actions',
             )
 
-
         self._placeholders = {
-                              'action_free': action_free_placeholders,
-                              'action_conditioned': action_conditioned_placeholders
-                            }
-
+            'action_free': action_free_placeholders,
+            'action_conditioned': action_conditioned_placeholders
+        }
 
         if self._paired_data_pool is not None:
             self._placeholders['paired_data'] = {
                 'obs_of_observation_no_aug': tf.placeholder(tf.float32,
-                                           shape=(None, *self._observation_shape),
-                                           name="obs_of_observation_no_aug"),
+                                                            shape=(None, *self._observation_shape),
+                                                            name="obs_of_observation_no_aug"),
                 'obs_of_interaction_no_aug': tf.placeholder(tf.float32,
-                                           shape=(None, *self._observation_shape),
-                                           name="obs_of_interaction_no_aug")
-                }
+                                                            shape=(None, *self._observation_shape),
+                                                            name="obs_of_interaction_no_aug")
+            }
 
         if self._domain_shift:
             self._domains_ph = tf.placeholder(tf.float32, shape=(None, 1), name='domains')
-
-
 
     def _training_batch(self, batch_size=None):
         batch = self.sampler.random_batch(batch_size)
         action_free_batch_size = 256
         action_free_batch = self._action_free_pool.random_batch(action_free_batch_size)
         combined_batch = {
-                'action_conditioned': batch,
-                'action_free': action_free_batch
-            }
+            'action_conditioned': batch,
+            'action_free': action_free_batch
+        }
         if self._paired_data_pool is not None:
             paired_data_batch_size = 256
             combined_batch['paired_data'] = self._paired_data_pool.random_batch(paired_data_batch_size)
@@ -167,14 +161,12 @@ class RLV(SAC):
 
     def _get_feed_dict(self, iteration, batch):
         """Construct a TensorFlow feed dictionary from a sample batch."""
-        
-        
 
         feed_dict = {}
         for action in ['action_conditioned', 'action_free']:
             for k in batch[action].keys():
                 if k in ['observations', 'next_observations']:
-                    feed_dict[self._placeholders[action][k+"_no_aug"]] = batch[action][k]
+                    feed_dict[self._placeholders[action][k + "_no_aug"]] = batch[action][k]
                 else:
                     feed_dict[self._placeholders[action][k]] = batch[action][k]
         if iteration is not None:
@@ -182,12 +174,13 @@ class RLV(SAC):
 
         if self._domain_shift:
             feed_dict[self._domains_ph] = np.concatenate([np.zeros(batch['action_conditioned']['terminals'].shape),
-                                                  np.ones(batch['action_free']['terminals'].shape)])
-
+                                                          np.ones(batch['action_free']['terminals'].shape)])
 
         if self._paired_data_pool is not None:
-            feed_dict[self._placeholders['paired_data']['obs_of_observation_no_aug']] = batch['paired_data']['observations']
-            feed_dict[self._placeholders['paired_data']['obs_of_interaction_no_aug']] = batch['paired_data']['next_observations']
+            feed_dict[self._placeholders['paired_data']['obs_of_observation_no_aug']] = batch['paired_data'][
+                'observations']
+            feed_dict[self._placeholders['paired_data']['obs_of_interaction_no_aug']] = batch['paired_data'][
+                'next_observations']
         return feed_dict
 
     def _init_augmentation(self):
@@ -231,14 +224,15 @@ class RLV(SAC):
 
         return diagnostics
 
-
-
     def _init_reward_generation(self):
         print("Removed rewards.  Running reward generation")
         self._placeholders['action_free']['rewards'] = tf.math.multiply(self._replace_rewards_scale,
-                                                                        tf.cast(self._placeholders['action_free']['terminals'], dtype=tf.float32))
+                                                                        tf.cast(self._placeholders['action_free'][
+                                                                                    'terminals'], dtype=tf.float32))
         self._placeholders['action_free']['rewards'] += tf.math.multiply(self._replace_rewards_bottom,
-                                                                         1.0 - tf.cast(self._placeholders['action_free']['terminals'], dtype=tf.float32))
+                                                                         1.0 - tf.cast(
+                                                                             self._placeholders['action_free'][
+                                                                                 'terminals'], dtype=tf.float32))
 
     def _init_inverse_model(self):
         """ Creates minimization ops for inverse model.
@@ -251,10 +245,10 @@ class RLV(SAC):
 
         next_states = tf.concat([self._placeholders['action_conditioned']['next_observations'],
                                  self._placeholders['action_free']['next_observations']], axis=0)
-        
+
         prev_states = tf.concat([self._placeholders['action_conditioned']['observations'],
                                  self._placeholders['action_free']['observations']], axis=0)
-    
+
         true_actions = self._placeholders['action_conditioned']['actions']
         action_con_obs = self._placeholders['action_conditioned']['observations']
         action_con_next_obs = self._placeholders['action_conditioned']['next_observations']
@@ -274,10 +268,8 @@ class RLV(SAC):
         pred_seen_actions = combined_pred_actions[:256]
         pred_unseen_actions = combined_pred_actions[256:]
 
-
         inverse_model_loss = tf.compat.v1.losses.mean_squared_error(
-                labels=true_actions, predictions=pred_seen_actions)
-
+            labels=true_actions, predictions=pred_seen_actions)
 
         if self._domain_shift:
 
@@ -287,24 +279,25 @@ class RLV(SAC):
                 paired_encodings = self._shared_preprocessor_model(combined_paired_data)
                 interaction_encodings = paired_encodings[:256]
                 observation_encodings = paired_encodings[256:]
-                self._paired_loss = self._paired_loss_scale * tf.keras.losses.MeanSquaredError()(interaction_encodings, observation_encodings)
-                
+                self._paired_loss = self._paired_loss_scale * tf.keras.losses.MeanSquaredError()(interaction_encodings,
+                                                                                                 observation_encodings)
+
                 self._paired_optimizer = tf.compat.v1.train.AdamOptimizer(
-                        learning_rate=self._paired_loss_lr,
-                        name='paired_loss_optimizer')
+                    learning_rate=self._paired_loss_lr,
+                    name='paired_loss_optimizer')
                 paired_train_op = self._paired_optimizer.minimize(loss=self._paired_loss,
-                                                                           var_list=self._shared_preprocessor_model.trainable_variables)
+                                                                  var_list=self._shared_preprocessor_model.trainable_variables)
                 self._training_ops.update({'paired_loss': paired_train_op})
 
             pred_domains = self._domain_shift_model(prev_states)
             discriminator_loss = tf.keras.losses.BinaryCrossentropy()(self._domains_ph, pred_domains)
             generator_loss = tf.keras.losses.BinaryCrossentropy()(1.0 - self._domains_ph, pred_domains)
 
-            self._domain_shift_score = tf.reduce_sum(tf.cast(tf.abs(pred_domains - self._domains_ph) <= 0.5, tf.float32)) / 512
+            self._domain_shift_score = tf.reduce_sum(
+                tf.cast(tf.abs(pred_domains - self._domains_ph) <= 0.5, tf.float32)) / 512
 
             self._domain_shift_generator_loss = generator_loss
             self._domain_shift_discriminator_loss = discriminator_loss
-
 
             inverse_model_loss = inverse_model_loss + generator_loss * self._domain_shift_generator_weight
             self._weighted_discriminator_loss = discriminator_loss * self._domain_shift_discriminator_weight
@@ -312,16 +305,17 @@ class RLV(SAC):
             self._domain_shift_discrim_optimizer = tf.compat.v1.train.AdamOptimizer(
                 learning_rate=self._domain_shift_discrim_lr,
                 name='domain_shift_discrim_optimizer')
-            domain_shift_discrim_train_op = self._domain_shift_discrim_optimizer.minimize(loss=self._weighted_discriminator_loss,
-                                                                                var_list=self._domain_shift_model.trainable_variables)
+            domain_shift_discrim_train_op = self._domain_shift_discrim_optimizer.minimize(
+                loss=self._weighted_discriminator_loss,
+                var_list=self._domain_shift_model.trainable_variables)
             self._training_ops.update({'domain_shift_discriminator': domain_shift_discrim_train_op})
 
-
         self._inverse_model_optimizer = tf.compat.v1.train.AdamOptimizer(
-                learning_rate=self._inverse_model_lr,
-                name='inverse_model_optimizer')
+            learning_rate=self._inverse_model_lr,
+            name='inverse_model_optimizer')
 
-        inverse_train_op = self._inverse_model_optimizer.minimize(loss=inverse_model_loss, var_list=self._inverse_model.trainable_variables)
+        inverse_train_op = self._inverse_model_optimizer.minimize(loss=inverse_model_loss,
+                                                                  var_list=self._inverse_model.trainable_variables)
 
         self._training_ops.update({'inverse_model': inverse_train_op})
         self._inverse_model_loss = inverse_model_loss
@@ -341,14 +335,14 @@ class RLV(SAC):
                                         self._placeholders['action_free']['terminals']], axis=0)
         self._iteration_ph = self._placeholders['action_conditioned']['iteration']
 
-    def _init_diagnostics_ops(self): 
-        diagnosables = OrderedDict(( 
-            ('Q_value', self._Q_values), 
-            ('Q_loss', self._Q_losses), 
-            ('policy_loss', self._policy_losses), 
+    def _init_diagnostics_ops(self):
+        diagnosables = OrderedDict((
+            ('Q_value', self._Q_values),
+            ('Q_loss', self._Q_losses),
+            ('policy_loss', self._policy_losses),
             ('alpha', self._alpha),
             ('inverse_model_loss', self._inverse_model_loss),
-        )) 
+        ))
 
         if self._domain_shift:
             diagnosables['domain_shift_discriminator'] = self._domain_shift_discriminator_loss
@@ -358,14 +352,13 @@ class RLV(SAC):
         if self._paired_data_pool is not None:
             diagnosables['paired_data_loss'] = self._paired_loss
 
-        diagnostic_metrics = OrderedDict(( 
-            ('mean', tf.reduce_mean), 
-            ('std', lambda x: tfp.stats.stddev(x, sample_axis=None)), 
-        )) 
- 
-        self._diagnostics_ops = OrderedDict([ 
-            (f'{key}-{metric_name}', metric_fn(values)) 
-            for key, values in diagnosables.items() 
-            for metric_name, metric_fn in diagnostic_metrics.items() 
-        ]) 
+        diagnostic_metrics = OrderedDict((
+            ('mean', tf.reduce_mean),
+            ('std', lambda x: tfp.stats.stddev(x, sample_axis=None)),
+        ))
 
+        self._diagnostics_ops = OrderedDict([
+            (f'{key}-{metric_name}', metric_fn(values))
+            for key, values in diagnosables.items()
+            for metric_name, metric_fn in diagnostic_metrics.items()
+        ])

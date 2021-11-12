@@ -18,16 +18,15 @@ from rl_with_videos.models.utils import get_inverse_model_from_variant
 from rl_with_videos.misc.generate_goal_examples import get_goal_example_from_variant
 from rl_with_videos.preprocessors.utils import get_preprocessor_from_params
 
-
 from rl_with_videos.misc.utils import set_seed, initialize_tf_variables
 from examples.instrument import run_example_local
 from examples.development.main import ExperimentRunner
+
 
 class ExperimentRunnerRL(ExperimentRunner):
 
     def _build(self):
         variant = copy.deepcopy(self._variant)
-
 
         training_environment = self.training_environment = (
             get_goal_example_environment_from_variant(variant))
@@ -37,12 +36,12 @@ class ExperimentRunnerRL(ExperimentRunner):
         if self._variant['shared_preprocessor']['use']:
             print("shared preprocessor:", variant['shared_preprocessor'])
             print("first preprocessor")
-            shared_preprocessor = get_preprocessor_from_params(training_environment, variant['shared_preprocessor']['preprocessor_params'])
+            shared_preprocessor = get_preprocessor_from_params(training_environment,
+                                                               variant['shared_preprocessor']['preprocessor_params'])
             print("shared_preprocessor:", shared_preprocessor)
             variant['inverse_model']['preprocessor_params']['shared_preprocessor_model'] = shared_preprocessor
             variant['Q_params']['kwargs']['preprocessor_params']['shared_preprocessor_model'] = shared_preprocessor
             variant['policy_params']['kwargs']['preprocessor_params']['shared_preprocessor_model'] = shared_preprocessor
-
 
         print("\n\n\n\nFinished env/shared preprocessor setup\n\n\n")
         replay_pool = self.replay_pool = (
@@ -66,14 +65,15 @@ class ExperimentRunnerRL(ExperimentRunner):
         }
 
         if 'paired_data_pool' in variant and variant['paired_data_pool'] is not None:
-
             print("\n\n\n\n\nusing paired data pool\n\n\n\n\n\n")
             algorithm_kwargs['shared_preprocessor_model'] = shared_preprocessor
-            algorithm_kwargs['paired_data_pool'] = get_replay_pool_from_variant(variant['paired_data_pool'], training_environment)
-        
+            algorithm_kwargs['paired_data_pool'] = get_replay_pool_from_variant(variant['paired_data_pool'],
+                                                                                training_environment)
+
         print("algorithm type:", self._variant['algorithm_params']['type'])
         if self._variant['algorithm_params']['type'] in ['RLV']:
-            action_free_replay_pool = get_replay_pool_from_variant(variant['action_free_replay_pool'], training_environment)
+            action_free_replay_pool = get_replay_pool_from_variant(variant['action_free_replay_pool'],
+                                                                   training_environment)
             algorithm_kwargs['action_free_pool'] = action_free_replay_pool
         if self._variant['algorithm_params']['type'] in ['RLV']:
             algorithm_kwargs['inverse_model'] = get_inverse_model_from_variant(variant, training_environment)
@@ -127,7 +127,6 @@ class ExperimentRunnerRL(ExperimentRunner):
             'session': self._session,
         }
 
-
         print("algorithm type:", self._variant['algorithm_params']['type'])
         if self._variant['algorithm_params']['type'] in ['RLV']:
             print("does not currently restore inverse model or action free replay pool")
@@ -162,6 +161,7 @@ class ExperimentRunnerRL(ExperimentRunner):
         }
 
         return picklables
+
 
 def main(argv=None):
     """Run ExperimentRunner locally on ray.
