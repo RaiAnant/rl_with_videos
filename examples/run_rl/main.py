@@ -45,12 +45,12 @@ class ExperimentRunnerRL(ExperimentRunner):
 
         print("\n\n\n\nFinished env/shared preprocessor setup\n\n\n")
         replay_pool = self.replay_pool = (
-            get_replay_pool_from_variant(variant, training_environment))
-        sampler = self.sampler = get_sampler_from_variant(variant)
-        Qs = self.Qs = get_Q_function_from_variant(variant, training_environment)
-        policy = self.policy = get_policy_from_variant(variant, training_environment, Qs)
+            get_replay_pool_from_variant(variant, training_environment)) # simple_replay_pool.SimpleReplayPool at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\replay_pools\
+        sampler = self.sampler = get_sampler_from_variant(variant) # SimpleSampler at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\samplers\simple_sampler.py
+        Qs = self.Qs = get_Q_function_from_variant(variant, training_environment) # a tuple of feed forward model. The model is generated using function C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\models\feedforward.py
+        policy = self.policy = get_policy_from_variant(variant, training_environment, Qs)    # FeedforwardGaussianPolicy at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\policies\utils.py
         initial_exploration_policy = self.initial_exploration_policy = (
-            get_policy('UniformPolicy', training_environment))
+            get_policy('UniformPolicy', training_environment))   #UniformPolicy at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\policies\uniform_policy.py
 
         algorithm_kwargs = {
             'variant': self._variant,
@@ -73,7 +73,7 @@ class ExperimentRunnerRL(ExperimentRunner):
         print("algorithm type:", self._variant['algorithm_params']['type'])
         if self._variant['algorithm_params']['type'] in ['RLV']:
             action_free_replay_pool = get_replay_pool_from_variant(variant['action_free_replay_pool'],
-                                                                   training_environment)
+                                                                   training_environment)  #action_free_replay_pool.ActionFreeReplayPool at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\replay_pools\
             algorithm_kwargs['action_free_pool'] = action_free_replay_pool
         if self._variant['algorithm_params']['type'] in ['RLV']:
             algorithm_kwargs['inverse_model'] = get_inverse_model_from_variant(variant, training_environment)
