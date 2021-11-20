@@ -11,7 +11,10 @@ from rl_with_videos.models.utils import flatten_input_structure
 class RLVU(SAC):
     """
     RL with video understanding
-    first, delete pair loss
+    STEP 1. delete pair loss; (Done)
+    STEP 2. add Video hidden state pool;
+    STEP 3. add Video Understanding Model;
+    STEP 4. add Video Understanding loss;
     ......
     """
     def __init__(self,
@@ -30,17 +33,14 @@ class RLVU(SAC):
                  **kwargs):
         print("\n\n\n\n\nkwargs in rlv:", kwargs)
         print("\n\n\n\n\n\n")
-        print("paired_data pool", paired_data_pool)
         print("shared preprocessor model", shared_preprocessor_model)
-        self._paired_data_pool = paired_data_pool
-        self._paired_loss_scale = paired_loss_scale
+        # self._paired_data_pool = None # RLVU will not use paired_data_pool 
         self._shared_preprocessor_model = shared_preprocessor_model
 
         self._action_free_pool = kwargs.pop('action_free_pool')
         self._inverse_model, self._domain_shift_model = kwargs.pop('inverse_model')
         self._inverse_model_lr = 3e-4
         self._domain_shift_discrim_lr = 3e-4
-        self._paired_loss_lr = 3e-4
 
         self._domain_shift = domain_shift
         self._domain_shift_generator_weight = domain_shift_generator_weight
@@ -138,16 +138,6 @@ class RLVU(SAC):
             'action_conditioned': action_conditioned_placeholders
         }
 
-        if self._paired_data_pool is not None:
-            self._placeholders['paired_data'] = {
-                'obs_of_observation_no_aug': tf.placeholder(tf.float32,
-                                                            shape=(None, *self._observation_shape),
-                                                            name="obs_of_observation_no_aug"),
-                'obs_of_interaction_no_aug': tf.placeholder(tf.float32,
-                                                            shape=(None, *self._observation_shape),
-                                                            name="obs_of_interaction_no_aug")
-            }
-
         if self._domain_shift:
             self._domains_ph = tf.placeholder(tf.float32, shape=(None, 1), name='domains')
 
@@ -159,9 +149,7 @@ class RLVU(SAC):
             'action_conditioned': batch,
             'action_free': action_free_batch
         }
-        if self._paired_data_pool is not None:
-            paired_data_batch_size = 256
-            combined_batch['paired_data'] = self._paired_data_pool.random_batch(paired_data_batch_size)
+
         return combined_batch
 
     def _get_feed_dict(self, iteration, batch):
@@ -180,19 +168,11 @@ class RLVU(SAC):
         if self._domain_shift:
             feed_dict[self._domains_ph] = np.concatenate([np.zeros(batch['action_conditioned']['terminals'].shape),
                                                           np.ones(batch['action_free']['terminals'].shape)])
-
-        if self._paired_data_pool is not None:
-            feed_dict[self._placeholders['paired_data']['obs_of_observation_no_aug']] = batch['paired_data'][
-                'observations']
-            feed_dict[self._placeholders['paired_data']['obs_of_interaction_no_aug']] = batch['paired_data'][
-                'next_observations']
         return feed_dict
 
     def _init_augmentation(self):
         top_level_keys = ['action_conditioned', 'action_free']
-        if 'paired_data' in self._placeholders.keys():
-            top_level_keys.append('paired_data')
-            print("\n\n\n\naugmenting paired data\n\n\n\n")
+
         for action in top_level_keys:
             keys = list(self._placeholders[action].keys())
             for k in keys:
@@ -278,22 +258,6 @@ class RLVU(SAC):
 
         if self._domain_shift:
 
-            if self._paired_data_pool is not None:
-                combined_paired_data = tf.concat([self._placeholders['paired_data']['obs_of_interaction'],
-                                                  self._placeholders['paired_data']['obs_of_observation']], axis=0)
-                paired_encodings = self._shared_preprocessor_model(combined_paired_data)
-                interaction_encodings = paired_encodings[:256]
-                observation_encodings = paired_encodings[256:]
-                self._paired_loss = self._paired_loss_scale * tf.keras.losses.MeanSquaredError()(interaction_encodings,
-                                                                                                 observation_encodings)
-
-                self._paired_optimizer = tf.compat.v1.train.AdamOptimizer(
-                    learning_rate=self._paired_loss_lr,
-                    name='paired_loss_optimizer')
-                paired_train_op = self._paired_optimizer.minimize(loss=self._paired_loss,
-                                                                  var_list=self._shared_preprocessor_model.trainable_variables)
-                self._training_ops.update({'paired_loss': paired_train_op})
-
             pred_domains = self._domain_shift_model(prev_states)
             discriminator_loss = tf.keras.losses.BinaryCrossentropy()(self._domains_ph, pred_domains)
             generator_loss = tf.keras.losses.BinaryCrossentropy()(1.0 - self._domains_ph, pred_domains)
@@ -353,9 +317,6 @@ class RLVU(SAC):
             diagnosables['domain_shift_discriminator'] = self._domain_shift_discriminator_loss
             diagnosables['domain_shift_generator'] = self._domain_shift_generator_loss
             diagnosables['domain_shift_score'] = self._domain_shift_score
-
-        if self._paired_data_pool is not None:
-            diagnosables['paired_data_loss'] = self._paired_loss
 
         diagnostic_metrics = OrderedDict((
             ('mean', tf.reduce_mean),
