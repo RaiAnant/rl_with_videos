@@ -16,10 +16,18 @@ def create_RLV_algorithm(variant, *args, **kwargs):
 
     return algorithm
 
+def create_RLVU_algorithm(variant, *args, **kwargs):
+    from .rlvu import RLVU
+
+    algorithm = RLVU(*args, **kwargs)
+
+    return algorithm
+
 
 ALGORITHM_CLASSES = {
     'SAC': create_SAC_algorithm,
     'RLV': create_RLV_algorithm,
+    'RLVU': create_RLVU_algorithm,
 }
 
 
