@@ -91,6 +91,20 @@ ALGORITHM_PARAMS_ADDITIONAL = {
             'n_epochs': 200,
         }
     },
+    'RLVU': {
+        'type': 'RLVU',
+        'kwargs': {
+            'reparameterize': REPARAMETERIZE,
+            'lr': 3e-4,
+            'target_update_interval': 1,
+            'tau': 5e-3,
+            'target_entropy': 'auto',
+            'store_extra_policy_info': False,
+            'action_prior': 'uniform',
+            'n_initial_exploration_steps': int(1e3),
+            'n_epochs': 200,
+        }
+    },
 }
 
 DEFAULT_NUM_EPOCHS = 200
@@ -213,6 +227,52 @@ def get_variant_spec(args):
             variant_spec['algorithm_params']['kwargs']['domain_shift_generator_weight'] = args.domain_shift_generator_weight
             variant_spec['algorithm_params']['kwargs']['domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
 
+    elif args.algorithm in ('RLVU',):
+        variant_spec['action_free_replay_pool'] = {
+            'replay_pool_params': {
+                'type': 'ActionFreeReplayPool',
+                'kwargs': {
+                    'max_size': 1e6,
+                    'data_path': args.replay_pool_load_path,
+                    'remove_rewards': args.remove_rewards,
+                    'max_demo_length': args.max_demo_length,
+                    'use_ground_truth_actions': args.use_ground_truth_actions,
+                }
+            }
+        }
+        if args.paired_data_path is not None:
+            variant_spec['paired_data_pool'] = {
+                    'replay_pool_params': {
+                        'type': 'ActionFreeReplayPool',
+                        'kwargs': {
+                            'max_size': 1e6,
+                            'data_path': args.paired_data_path,
+                            'remove_rewards': True,
+                            'max_demo_length': args.max_demo_length,
+                            'use_ground_truth_actions': False,
+                        }
+                    }
+                }
+        else:
+            variant_spec['paired_data_pool'] = None
+        variant_spec['algorithm_params']['kwargs']['remove_rewards'] = args.remove_rewards
+        variant_spec['algorithm_params']['kwargs']['replace_rewards_scale'] = args.replace_rewards_scale
+        variant_spec['algorithm_params']['kwargs']['replace_rewards_bottom'] = args.replace_rewards_bottom
+        variant_spec['algorithm_params']['kwargs']['use_ground_truth_actions'] = args.use_ground_truth_actions
+        variant_spec['algorithm_params']['kwargs']['use_zero_actions'] = args.use_zero_actions
+        variant_spec['algorithm_params']['kwargs']['paired_loss_scale'] = args.paired_loss_scale
+        if args.algorithm in ('RLVU'):
+            variant_spec['inverse_model'] = {
+                'hidden_layer_sizes': [64, 64, 64],
+                'conv_filters': [64] * 5,
+                'conv_kernel_sizes': [3] * 5,
+                'conv_strides': [2] * 5,
+                'domain_shift': args.domain_shift,
+            }
+            variant_spec['algorithm_params']['kwargs']['preprocessor_for_inverse'] = args.domain_shift
+            variant_spec['algorithm_params']['kwargs']['domain_shift'] = args.domain_shift
+            variant_spec['algorithm_params']['kwargs']['domain_shift_generator_weight'] = args.domain_shift_generator_weight
+            variant_spec['algorithm_params']['kwargs']['domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
 
 
     variant_spec['algorithm_params']['kwargs']['n_epochs'] = \

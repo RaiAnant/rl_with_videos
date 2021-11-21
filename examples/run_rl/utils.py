@@ -181,7 +181,7 @@ def get_parser(allow_policy_list=False):
     parser.add_argument(
         '--n_goal_examples', type=int, default=10)
     parser.add_argument(
-        '--n_epochs', type=int, default=1000)
+        '--n_epochs', type=int, default=300)
 
     parser.add_argument(
         '--checkpoint-replay-pool',

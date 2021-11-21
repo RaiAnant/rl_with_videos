@@ -71,11 +71,11 @@ class ExperimentRunnerRL(ExperimentRunner):
                                                                                 training_environment)
 
         print("algorithm type:", self._variant['algorithm_params']['type'])
-        if self._variant['algorithm_params']['type'] in ['RLV']:
+        if self._variant['algorithm_params']['type'] in ['RLV', 'RLVU']:
             action_free_replay_pool = get_replay_pool_from_variant(variant['action_free_replay_pool'],
                                                                    training_environment)  #action_free_replay_pool.ActionFreeReplayPool at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\replay_pools\
             algorithm_kwargs['action_free_pool'] = action_free_replay_pool
-        if self._variant['algorithm_params']['type'] in ['RLV']:
+        if self._variant['algorithm_params']['type'] in ['RLV' , 'RLVU']:
             algorithm_kwargs['inverse_model'] = get_inverse_model_from_variant(variant, training_environment)
             print("inited replay pool and inverse model")
 
@@ -128,7 +128,7 @@ class ExperimentRunnerRL(ExperimentRunner):
         }
 
         print("algorithm type:", self._variant['algorithm_params']['type'])
-        if self._variant['algorithm_params']['type'] in ['RLV']:
+        if self._variant['algorithm_params']['type'] in ['RLV', 'RLVU']:
             print("does not currently restore inverse model or action free replay pool")
             raise NotImplementedError
 
