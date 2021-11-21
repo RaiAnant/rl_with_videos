@@ -71,6 +71,13 @@ cd examples/run_rl
 python3 -u main.py --task=Image48HumanLikeSawyerPushForwardEnv-v0 --domain mujoco --algorithm RLV  --exp-name EXP_NAME --gpus=1 --trial-gpus=1 --replay_pool_load_path /PATH/TO/REPLAY/POOL --paired_data_path /PATH/TO/PAIRED/DATA --paired_loss_scale 1e-06 --replace_rewards_scale=10.0 --replace_rewards_bottom=0.0 --domain_shift --domain_shift_generator_weight 0.001 --domain_shift_discriminator_weight 1e-08
 ```
 
+To run the RV with video understanding, run the following command.
+
+```
+cd examples/run_rl
+python -u main.py --task=Image48HumanLikeSawyerPushForwardEnv-v0 --domain mujoco --algorithm RLVU  --exp-name EXP_NAME --gpus=2 --trial-gpus=1 --replay_pool_load_path /PATH/TO/REPLAY/POOL --paired_data_path /PATH/TO/PAIRED/DATA --paired_loss_scale 1e-06 --replace_rewards_scale=10.0 --replace_rewards_bottom=0.0 --domain_shift --domain_shift_generator_weight 0.001 --domain_shift_discriminator_weight 1e-08
+```
+
 
 ## Drawer opening with Human Observations
 
