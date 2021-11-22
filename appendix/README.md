@@ -1,9 +1,9 @@
 ## Show the model with jupyter notebook
 
-## Feedforward network for MNIST   
+#### Feedforward network for MNIST   
 
-## CNN for CIFAR-10    
+#### CNN for CIFAR-10    
 
-## LRCNs (CNN-LSTM) for UCF101    
+#### LRCNs (CNN-LSTM) for UCF101    
 
-## Transformers for UCF101    
+#### Transformers for UCF101    
