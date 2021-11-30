@@ -1,0 +1,55 @@
+NodeManager:
+InitialConfigResources: {node:192.168.0.18: 1.000000}, {CPU: 16.000000}, {GPU: 1.000000}, {memory: 4.345703 GiB}, {object_store_memory: 1.464844 GiB}
+ClusterResources:
+7d93a508161c2d1d8f1505046bed7a8f98c611ae: 
+- total: {CPU: 16.000000}, {node:192.168.0.18: 1.000000}, {GPU: 1.000000}, {object_store_memory: 1.464844 GiB}, {memory: 4.345703 GiB}
+- avail: {node:192.168.0.18: 1.000000}, {object_store_memory: 1.464844 GiB}, {memory: 4.345703 GiB}
+ObjectManager:
+- num local objects: 0
+- num active wait requests: 0
+- num unfulfilled push requests: 0
+- num pull requests: 0
+- num buffered profile events: 0
+ObjectDirectory:
+- num listeners: 0
+ObjectStoreNotificationManager:
+- num adds processed: 17
+- num removes processed: 17
+BufferPool:
+- get buffer state map size: 0
+- create buffer state map size: 0
+
+WorkerPool:
+- num PYTHON workers: 16
+- num PYTHON drivers: 1
+SchedulingQueue:
+- num placeable tasks: 0
+- num waiting tasks: 0
+- num ready tasks: 0
+- num running tasks: 0
+- num infeasible tasks: 0
+- num waiting for actor creation tasks: 0
+- num swap tasks: 0
+- num tasks blocked: 0
+ScheduledTaskCounts:
+- {type=PythonFunctionDescriptor, module_name=examples.run_rl.main, class_name=ExperimentRunnerRL, function_name=__init__, function_hash=65f5cfb0-7d48-40a9-898a-11d511c50dcb}{CPU: 16.000000}, {GPU: 1.000000}: 0
+ReconstructionPolicy:
+- num reconstructing: 0
+TaskDependencyManager:
+- task dep map size: 0
+- task req map size: 0
+- req objects map size: 0
+- local objects map size: 1
+- pending tasks map size: 0
+LineageCache:
+- child map size: 0
+- num subscribed tasks: 0
+- lineage size: 0
+num async plasma notifications: 0
+ActorRegistry:
+- num live actors: 1
+- num restarting actors: 0
+- num dead actors: 0
+- max num handles: 0
+Remote node manager clients: 
+DebugString() time ms: 0

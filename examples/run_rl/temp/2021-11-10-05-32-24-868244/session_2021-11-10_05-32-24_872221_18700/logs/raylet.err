@@ -1,0 +1,13 @@
+F1110 05:32:33.151517 17968 21196 asio.cc:82]  Check failed: !error_code || error_code == boost::asio::error::would_block || error_code == boost::asio::error::connection_reset handle_read(error_code = system:995)
+*** Check failure stack trace: ***
+    @   00007FF78E33608C  public: __cdecl google::LogMessage::~LogMessage(void) __ptr64
+    @   00007FF78E04CFB4  public: virtual __cdecl google::NullStreamFatal::~NullStreamFatal(void) __ptr64
+    @   00007FF78E4D1579  void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @   00007FF78E4D2169  void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @   00007FF78E058C10  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FF78E052BB0  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FF78E052AFB  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FF78DFE3BCD  Ordinal0
+    @   00007FF78E6F43B5  bool __cdecl google::Demangle(char const * __ptr64,char * __ptr64,int)
+    @   00007FFE5A957034  BaseThreadInitThunk
+    @   00007FFE5B602651  RtlUserThreadStart

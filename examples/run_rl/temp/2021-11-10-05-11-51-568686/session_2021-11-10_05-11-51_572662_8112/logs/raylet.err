@@ -1,0 +1,8 @@
+*** Aborted at 1636540333 (unix time) try "date -d @1636540333" if you are using GNU date ***
+    @     0x7ffe590e0ef5 _seh_filter_exe
+    @     0x7ff78e6f460b bool __cdecl google::Demangle(char const * __ptr64,char * __ptr64,int)
+    @     0x7ffe3953ecd0 __C_specific_handler
+    @     0x7ffe5b6520cf __chkstk
+    @     0x7ffe5b601454 RtlRaiseException
+    @     0x7ffe5b650bfe KiUserExceptionDispatcher
+    @      0x2123b54f0c0 (unknown)

@@ -1,0 +1,4 @@
+Log file created at: 2021/11/11 23:24:45
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1111 23:24:45.174958 19040 18772 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 19040

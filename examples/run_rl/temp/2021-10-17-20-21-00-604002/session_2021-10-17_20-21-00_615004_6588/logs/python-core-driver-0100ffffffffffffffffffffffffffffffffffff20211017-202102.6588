@@ -1,0 +1,21 @@
+Log file created at: 2021/10/17 20:21:02
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1017 20:21:02.436970  6588  8216 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 6588
+I1017 20:21:05.537186  6588  8216 grpc_server.cc:74] driver server started, listening on port 8350.
+I1017 20:21:05.569195  6588  8216 core_worker.cc:318] Initializing worker at address: 10.19.47.250:8350, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 96eab744340fcb753579ccbc860340d9722b3664
+I1017 20:21:05.582197  6588  8216 redis_client.cc:141] RedisClient connected.
+I1017 20:21:05.583196  6588  8216 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 20:21:05.590198  6588  8216 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1017 20:21:05.612203  6588  8216 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1017 20:21:05.613204  6588  8216 global_state_accessor.cc:25] Redis server address = 10.19.47.250:6379, is test flag = 0
+I1017 20:21:05.618206  6588  9672 service_based_accessor.cc:739] Received notification for node id = 96eab744340fcb753579ccbc860340d9722b3664, IsAlive = 1
+I1017 20:21:05.620205  6588  8216 redis_client.cc:141] RedisClient connected.
+I1017 20:21:05.620205  6588  8216 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 20:21:05.623205  6588  8216 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1017 20:21:07.722954  6588  8216 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 50bdcf692f3c31cd3e7677d291f9000000000000
+I1017 20:21:10.720603  6588  9672 direct_task_transport.cc:86] Connected to 10.19.47.250:8416
+E1017 21:37:25.658872  6588  9672 task_manager.cc:301] 3 retries left for task ffffffffffffffff45b95b1c0100, attempting to resubmit.
+E1017 21:59:27.293206  6588  9672 core_worker.cc:383] Will resubmit task after a 5000ms delay: Type=ACTOR_CREATION_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=examples.run_rl.main, class_name=ExperimentRunnerRL, function_name=__init__, function_hash=bbab6965-75a7-4255-9604-d32eb7021e43}, task_id=ffffffffffffffff45b95b1c0100, job_id=0100, num_args=4, num_returns=1, actor_creation_task_spec={actor_id=45b95b1c0100, max_restarts=0, max_concurrency=1, is_asyncio_actor=0, is_detached=0}
+I1017 21:59:27.344863  6588  9672 raylet_client.cc:383] Error returning worker: IOError: 14: failed to connect to all addresses
+F1017 21:59:32.616756  6588  9672 direct_task_transport.cc:238] IOError: 14: failed to connect to all addresses

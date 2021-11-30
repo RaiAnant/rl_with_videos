@@ -157,7 +157,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
         pool = self._pool
 
         if not self._training_started:
-            self._init_training()
+            self._init_training() #updates target network. i.e. Qt = Q*tau+(1-tau)Qt
 
             self._initial_exploration_hook(
                 training_environment, self._initial_exploration_policy, pool)

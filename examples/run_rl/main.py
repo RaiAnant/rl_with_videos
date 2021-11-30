@@ -23,6 +23,7 @@ from examples.instrument import run_example_local
 from examples.development.main import ExperimentRunner
 
 
+
 class ExperimentRunnerRL(ExperimentRunner):
 
     def _build(self):
@@ -171,4 +172,7 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
+    # physical_devices = tf.compat.v1.config.list_physical_devices('GPU')
+    # for device in physical_devices:
+    #     tf.compat.v1.config.experimental.set_memory_growth(device, True)
     main(argv=sys.argv[1:])

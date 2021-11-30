@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 1184, in get_connection
+    if connection.can_read():
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 716, in can_read
+    return self._parser.can_read(timeout)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 310, in can_read
+    return self._buffer and self._buffer.can_read(timeout)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 220, in can_read
+    raise_on_timeout=False)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 190, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 550, in connect
+    sock = self._connect()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 607, in _connect
+    raise err
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 595, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\log_monitor.py", line 298, in <module>
+    log_monitor.run()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\log_monitor.py", line 249, in run
+    anything_published = self.check_log_files_and_publish_updates()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\log_monitor.py", line 234, in check_log_files_and_publish_updates
+    "lines": lines_to_publish
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\client.py", line 3052, in publish
+    return self.execute_command('PUBLISH', channel, message)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\client.py", line 881, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 1188, in get_connection
+    connection.connect()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 555, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 10.19.47.250:6379. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 550, in connect
+    sock = self._connect()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 607, in _connect
+    raise err
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 595, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\log_monitor.py", line 307, in <module>
+    redis_client, ray_constants.LOG_MONITOR_DIED_ERROR, message)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\utils.py", line 123, in push_error_to_driver_through_redis
+    error_data)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\client.py", line 881, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 1178, in get_connection
+    connection.connect()
+  File "C:\anaconda3\envs\RLV\lib\site-packages\redis\connection.py", line 555, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 10.19.47.250:6379. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

@@ -1,0 +1,24 @@
+E1017 21:37:25.680877  5084 12928 gcs_redis_failure_detector.cc:37] Redis is inactive.
+*** Aborted at 1634521045 (unix time) try "date -d @1634521045" if you are using GNU date ***
+    @     0x7ffbd54a0ef5 _seh_filter_exe
+    @     0x7ff6a326435b bool __cdecl google::Demangle(char const * __ptr64,char * __ptr64,int)
+    @     0x7ffbbe85ecd0 __C_specific_handler
+    @     0x7ffbd77320cf __chkstk
+    @     0x7ffbd76e1454 RtlRaiseException
+    @     0x7ffbd7730bfe KiUserExceptionDispatcher
+    @     0x7ff6a2fb9565 void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @     0x7ff6a2fb9908 void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @     0x7ff6a2fb8776 void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @     0x7ff6a2dfdf9f public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2dfeb6a public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2ded4df public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2dbf352 public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2dc98a0 public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2dc9528 public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2d58240 public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2d52290 public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2d521db public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @     0x7ff6a2ce1741 Ordinal0
+    @     0x7ff6a32640f1 bool __cdecl google::Demangle(char const * __ptr64,char * __ptr64,int)
+    @     0x7ffbd5a37034 BaseThreadInitThunk
+    @     0x7ffbd76e2651 RtlUserThreadStart

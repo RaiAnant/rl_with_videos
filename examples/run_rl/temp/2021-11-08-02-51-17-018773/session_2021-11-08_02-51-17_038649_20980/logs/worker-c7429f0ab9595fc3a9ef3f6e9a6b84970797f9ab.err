@@ -1,0 +1,58 @@
+Ray worker pid: 12000
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:528: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:529: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:530: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:535: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2021-11-08 02:51:41.873997: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2021-11-08 02:51:44.191993: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 3060 Laptop GPU major: 8 minor: 6 memoryClockRate(GHz): 1.425
+pciBusID: 0000:01:00.0
+totalMemory: 6.00GiB freeMemory: 5.04GiB
+2021-11-08 02:51:44.196460: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2021-11-08 02:51:46.630751: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-11-08 02:51:46.632892: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2021-11-08 02:51:46.634217: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2021-11-08 02:51:46.636123: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4761 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6)
+WARNING:tensorflow:From C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\resource_variable_ops.py:435: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+WARNING:tensorflow:From C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:667: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+2021-11-08 02:52:12.011008: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library cublas64_100.dll locally
+2021-11-08 02:56:22.073867: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+2021-11-08 02:56:22.077447: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+2021-11-08 02:56:22.077773: I tensorflow/stream_executor/stream.cc:2079] [stream=0000026881533860,impl=000002682102C5F0] did not wait for [stream=0000026881532C60,impl=000002682102C5C0]
+2021-11-08 02:56:22.077803: I tensorflow/stream_executor/stream.cc:2079] [stream=00000268815321E0,impl=000002682102C740] did not wait for [stream=0000026881532C60,impl=000002682102C5C0]
+2021-11-08 02:56:22.079964: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+2021-11-08 02:56:22.084206: I tensorflow/stream_executor/stream.cc:5027] [stream=0000026881533860,impl=000002682102C5F0] did not memcpy host-to-device; source: 0000000204A03200
+2021-11-08 02:56:22.087579: I tensorflow/stream_executor/stream.cc:5014] [stream=00000268815321E0,impl=000002682102C740] did not memcpy device-to-host; source: 000000070C648500
+2021-11-08 02:56:22.091173: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+2021-11-08 02:56:22.093725: F tensorflow/core/common_runtime/gpu/gpu_util.cc:339] CPU->GPU Memcpy failed
+2021-11-08 02:56:22.100786: *** Aborted at 1636358182 (unix time) try "date -d @1636358182" if you are using GNU date ***
+E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+    @     0x7ff99ecf1881 raise
+    @     0x7ff99ecf2851 abort
+    @     0x7ff8dec9f15f public: virtual __cdecl tensorflow::internal::LogMessageFatal::~LogMessageFatal(void) __ptr64
+    @     0x7ff8de6f759d public: static class tensorflow::StepStats const * __ptr64 __cdecl tensorflow::StepStats::internal_default_instance(void)
+    @     0x7ff8deb2b546 private: void __cdecl Eigen::ThreadPoolTempl<struct tensorflow::thread::EigenEnvironment>::WorkerLoop(int) __ptr64
+    @     0x7ff8deb2b791 private: void __cdecl Eigen::ThreadPoolTempl<struct tensorflow::thread::EigenEnvironment>::WorkerLoop(int) __ptr64
+    @     0x7ff8deb01b25 public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl tensorflow::WindowsFileSystem::TranslateName(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const & 
+    @     0x7ff8deb019b9 public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl tensorflow::WindowsFileSystem::TranslateName(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const & 
+    @     0x7ff99eca1bb2 _configthreadlocale
+    @     0x7ff9a0e97034 BaseThreadInitThunk
+    @     0x7ff9a1042651 RtlUserThreadStart

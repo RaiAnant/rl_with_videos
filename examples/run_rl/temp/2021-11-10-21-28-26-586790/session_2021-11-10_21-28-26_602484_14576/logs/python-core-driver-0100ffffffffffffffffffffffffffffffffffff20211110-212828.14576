@@ -1,0 +1,21 @@
+Log file created at: 2021/11/10 21:28:28
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 21:28:28.225919 14576 17536 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 14576
+I1110 21:28:31.304235 14576 17536 grpc_server.cc:74] driver server started, listening on port 7217.
+I1110 21:28:31.316241 14576 17536 core_worker.cc:318] Initializing worker at address: 10.16.234.175:7217, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 64c855cd36e757bc517cab6e9383e7388b0bf016
+I1110 21:28:31.328241 14576 17536 redis_client.cc:141] RedisClient connected.
+I1110 21:28:31.328241 14576 17536 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:28:31.328241 14576 17536 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 21:28:31.336244 14576 17536 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1110 21:28:31.340245 14576 17536 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 21:28:31.340245 14576  4696 service_based_accessor.cc:739] Received notification for node id = 64c855cd36e757bc517cab6e9383e7388b0bf016, IsAlive = 1
+I1110 21:28:31.356251 14576 17536 redis_client.cc:141] RedisClient connected.
+I1110 21:28:31.356251 14576 17536 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:28:31.364251 14576 17536 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 21:28:33.386181 14576 17536 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 5ef8e31be42d06228dd341623b88000000000000
+I1110 21:28:42.883862 14576  4696 direct_task_transport.cc:86] Connected to 10.16.234.175:7330
+I1110 21:28:57.391476 14576  4696 direct_actor_transport.cc:134] Resetting caller starts at for actor 45b95b1c0100 from 0 to 0
+I1110 21:28:57.391476 14576  4696 core_worker.cc:1305] received notification on actor, state: ALIVE, actor_id: 45b95b1c0100, ip address: 10.16.234.175, port: 7330, worker_id: b0998489605415095c996546826548f25f4cac5d, raylet_id: 64c855cd36e757bc517cab6e9383e7388b0bf016
+I1110 21:41:56.956022 14576 17536 core_worker.cc:212] Removed worker 0100ffffffffffffffffffffffffffffffffffff
+I1110 21:41:57.040043 14576 17536 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 14576

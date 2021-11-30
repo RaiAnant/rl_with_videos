@@ -1,0 +1,19 @@
+Log file created at: 2021/11/10 20:49:52
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 20:49:52.859884 12688  3164 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 12688
+I1110 20:49:52.904604 12688  3164 grpc_server.cc:74] worker server started, listening on port 23080.
+I1110 20:49:52.912604 12688  3164 core_worker.cc:318] Initializing worker at address: 10.16.234.175:23080, worker ID 9c40a38f4573e5ac175bbb064100b385265d6da5, raylet 68cc3f00136bc90b104c88ae03c1d11fe6695b13
+I1110 20:49:52.924607 12688  3164 redis_client.cc:141] RedisClient connected.
+I1110 20:49:52.924607 12688  3164 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 20:49:52.926609 12688  3164 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 20:49:52.930609 12688  3164 core_worker.cc:189] Worker 9c40a38f4573e5ac175bbb064100b385265d6da5 is created.
+I1110 20:49:52.931609 12688  3164 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 20:49:52.933609 12688  7296 service_based_accessor.cc:739] Received notification for node id = 68cc3f00136bc90b104c88ae03c1d11fe6695b13, IsAlive = 1
+W1110 20:49:52.936610 12688  3164 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1110 20:49:53.048635 12688  3164 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 20:49:53.160662 12688  3164 redis_client.cc:141] RedisClient connected.
+I1110 20:49:53.160662 12688  3164 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 20:49:53.161662 12688  3164 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 20:49:55.182186 12688  3164 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 0c2e33228e6523e5ed446c4736a4000000000000
+I1110 20:51:34.710920 12688  7296 service_based_accessor.cc:739] Received notification for node id = 68cc3f00136bc90b104c88ae03c1d11fe6695b13, IsAlive = 0

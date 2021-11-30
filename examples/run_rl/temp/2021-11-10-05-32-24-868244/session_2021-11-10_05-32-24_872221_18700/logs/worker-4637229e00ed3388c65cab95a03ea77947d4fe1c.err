@@ -1,0 +1,112 @@
+Ray worker pid: 22328
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:528: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:529: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:530: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:535: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2021-11-10 05:32:33,152	ERROR worker.py:374 -- SystemExit was raised from the worker
+Traceback (most recent call last):
+  File "python\ray\_raylet.pyx", line 514, in ray._raylet.task_execution_handler
+  File "python\ray\_raylet.pyx", line 335, in ray._raylet.execute_task
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\function_manager.py", line 397, in load_actor_class
+    job_id, actor_creation_function_descriptor)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\function_manager.py", line 494, in _load_actor_class_from_gcs
+    actor_class = pickle.loads(pickled_class)
+  File "C:\Users\Anant Rai\Repositories\rl_with_videos\examples\run_rl\main.py", line 7, in <module>
+    import tensorflow as tf
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\__init__.py", line 24, in <module>
+    from tensorflow.python import pywrap_tensorflow  # pylint: disable=unused-import
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\__init__.py", line 72, in <module>
+    from tensorflow.python.ops.standard_ops import *
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\standard_ops.py", line 25, in <module>
+    from tensorflow.python import autograph
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\autograph\__init__.py", line 35, in <module>
+    from tensorflow.python.autograph import operators
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\autograph\operators\__init__.py", line 40, in <module>
+    from tensorflow.python.autograph.operators.control_flow import for_stmt
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\autograph\operators\control_flow.py", line 22, in <module>
+    from tensorflow.python.data.ops import dataset_ops
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\data\__init__.py", line 25, in <module>
+    from tensorflow.python.data import experimental
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\data\experimental\__init__.py", line 100, in <module>
+    from tensorflow.python.data.experimental.ops.iterator_ops import CheckpointInputPipelineHook
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\data\experimental\ops\iterator_ops.py", line 23, in <module>
+    from tensorflow.python.training import basic_session_run_hooks
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\training\basic_session_run_hooks.py", line 42, in <module>
+    from tensorflow.python.training.summary_io import SummaryWriterCache
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\training\summary_io.py", line 23, in <module>
+    from tensorflow.python.summary.writer.writer import FileWriter as _FileWriter
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\summary\writer\writer.py", line 36, in <module>
+    from tensorflow.python.summary.writer.event_file_writer_v2 import EventFileWriterV2
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\summary\writer\event_file_writer_v2.py", line 25, in <module>
+    from tensorflow.python.ops import summary_ops_v2
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\summary_ops_v2.py", line 40, in <module>
+    from tensorflow.python.ops import summary_op_util
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\ops\summary_op_util.py", line 24, in <module>
+    from tensorflow.python.distribute import distribution_strategy_context
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\distribute\__init__.py", line 24, in <module>
+    from tensorflow.python.distribute import mirrored_strategy
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\distribute\mirrored_strategy.py", line 27, in <module>
+    from tensorflow.python.distribute import cross_device_ops as cross_device_ops_lib
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\distribute\cross_device_ops.py", line 25, in <module>
+    from tensorflow.python.distribute import cross_device_utils
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\distribute\cross_device_utils.py", line 25, in <module>
+    from tensorflow.python.distribute import values as value_lib
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\distribute\values.py", line 32, in <module>
+    from tensorflow.python.data.ops import multi_device_iterator_ops
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\data\ops\multi_device_iterator_ops.py", line 23, in <module>
+    from tensorflow.python.eager import function
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\eager\function.py", line 44, in <module>
+    from tensorflow.python.framework import func_graph as func_graph_module
+  File "C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\func_graph.py", line 33, in <module>
+    from tensorflow.python.ops import custom_gradient
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 951, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 894, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1157, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1129, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1241, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 82, in _path_stat
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\worker.py", line 371, in sigterm_handler
+    sys.exit(1)
+SystemExit: 1
+F1110 05:32:33.297610 22328 19484 core_worker.cc:515]  Check failed: _s.ok() Bad status: IOError: [RayletClient] Connection closed unexpectedly.
+*** Check failure stack trace: ***
+    @   00007FFDF6E74A4C  public: __cdecl google::LogMessage::~LogMessage(void) __ptr64
+    @   00007FFDF6CE9914  public: virtual __cdecl google::NullStreamFatal::~NullStreamFatal(void) __ptr64
+    @   00007FFDF6C483F6  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFDF6C3B456  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFDF6C861DF  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFDF6D53752  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6D5167A  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6D50196  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6C9952E  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFDF6D07970  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6D01510  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6D0145B  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFDF6C33F67  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFDF6BA3C13  public: virtual __cdecl google::LogSink::~LogSink(void) __ptr64
+    @   00000000646EB2FD  _PyCFunction_FastCallDict
+    @   00000000646EB859  PyObject_GetAttr
+    @   00000000646EC28E  _PyEval_EvalFrameDefault
+    @   00000000646EBA20  PyObject_GetAttr
+    @   00000000646EC28E  _PyEval_EvalFrameDefault
+    @   00000000646E9528  PyObject_IsInstance
+    @   00000000646B4F7B  PyEval_EvalCodeEx
+    @   00000000646B4ED9  PyEval_EvalCode
+    @   00000000646B4E83  PyArena_Free
+    @   000000006484DFF1  PyRun_FileExFlags
+    @   000000006484E81C  PyRun_SimpleFileExFlags
+    @   000000006484DEBF  PyRun_AnyFileExFlags
+    @   000000006479CCAF  _Py_hashtable_size
+    @   000000006473E6AB  _PyThreadState_UncheckedGet
+    @   000000001C041258  (unknown)
+    @   00007FFE5A957034  BaseThreadInitThunk
+    @   00007FFE5B602651  RtlUserThreadStart

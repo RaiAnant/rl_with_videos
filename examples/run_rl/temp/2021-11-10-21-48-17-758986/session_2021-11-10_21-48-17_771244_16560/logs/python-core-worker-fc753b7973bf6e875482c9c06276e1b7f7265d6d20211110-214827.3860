@@ -1,0 +1,21 @@
+Log file created at: 2021/11/10 21:48:27
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 21:48:27.324435  3860 17780 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 3860
+I1110 21:48:27.328436  3860 17780 grpc_server.cc:74] worker server started, listening on port 1630.
+I1110 21:48:27.336437  3860 17780 core_worker.cc:318] Initializing worker at address: 10.16.234.175:1630, worker ID fc753b7973bf6e875482c9c06276e1b7f7265d6d, raylet 58a28ee96cb5849edcb5189b7f2828bc976c2375
+W1110 21:48:27.356443  3860 17780 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 21:48:27.464506  3860 17780 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.464506  3860 17780 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.492514  3860 17780 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 21:48:27.524523  3860 17780 core_worker.cc:189] Worker fc753b7973bf6e875482c9c06276e1b7f7265d6d is created.
+I1110 21:48:27.524523  3860 17780 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 21:48:27.540526  3860  7968 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 1
+W1110 21:48:27.544528  3860 17780 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 21:48:27.690471  3860 17780 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.690471  3860 17780 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.690471  3860 17780 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 21:48:29.679508  3860 17780 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: a9a469eca89292206514924281f3000000000000
+I1110 21:48:39.055042  3860 17780 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1110 21:48:53.544744  3860 17780 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1110 22:06:26.158200  3860  7968 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 0

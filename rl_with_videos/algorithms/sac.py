@@ -82,7 +82,7 @@ class SAC(RLAlgorithm):
         self._Q_targets = tuple(tf.keras.models.clone_model(Q) for Q in self._Qs)
 
 
-        self._pool = pool
+        self._pool = pool  #SimpleReplayPool class object
         self._plotter = plotter
 
         self._policy_lr = lr

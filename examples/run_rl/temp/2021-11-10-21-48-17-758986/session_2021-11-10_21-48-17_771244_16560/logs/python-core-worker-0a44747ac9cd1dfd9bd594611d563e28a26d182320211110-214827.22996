@@ -1,0 +1,21 @@
+Log file created at: 2021/11/10 21:48:27
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 21:48:27.416494 22996 18000 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 22996
+I1110 21:48:27.508519 22996 18000 grpc_server.cc:74] worker server started, listening on port 1735.
+I1110 21:48:27.524523 22996 18000 core_worker.cc:318] Initializing worker at address: 10.16.234.175:1735, worker ID 0a44747ac9cd1dfd9bd594611d563e28a26d1823, raylet 58a28ee96cb5849edcb5189b7f2828bc976c2375
+W1110 21:48:27.532524 22996 18000 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1110 21:48:27.646459 22996 18000 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1110 21:48:27.751552 22996 18000 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1110 21:48:27.864380 22996 18000 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 21:48:27.973776 22996 18000 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.973776 22996 18000 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.973776 22996 18000 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 21:48:27.977752 22996 18000 core_worker.cc:189] Worker 0a44747ac9cd1dfd9bd594611d563e28a26d1823 is created.
+I1110 21:48:27.977752 22996 18000 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 21:48:27.981753 22996 19480 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 1
+I1110 21:48:27.985780 22996 18000 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.985780 22996 18000 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.985780 22996 18000 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 21:48:29.979591 22996 18000 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 8d09127a9a7b6b81aac609e30c49000000000000
+I1110 22:06:26.158200 22996 19480 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 0

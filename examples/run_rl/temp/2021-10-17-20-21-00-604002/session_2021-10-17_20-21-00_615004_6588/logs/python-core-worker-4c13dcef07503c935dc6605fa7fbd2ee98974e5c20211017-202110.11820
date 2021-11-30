@@ -1,0 +1,19 @@
+Log file created at: 2021/10/17 20:21:10
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1017 20:21:10.706601 11820  3336 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 11820
+I1017 20:21:10.713603 11820  3336 grpc_server.cc:74] worker server started, listening on port 8416.
+I1017 20:21:10.719604 11820  3336 core_worker.cc:318] Initializing worker at address: 10.19.47.250:8416, worker ID 4c13dcef07503c935dc6605fa7fbd2ee98974e5c, raylet 96eab744340fcb753579ccbc860340d9722b3664
+I1017 20:21:10.728605 11820  3336 redis_client.cc:141] RedisClient connected.
+I1017 20:21:10.728605 11820  3336 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 20:21:10.729605 11820  3336 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1017 20:21:10.733606 11820  3336 core_worker.cc:189] Worker 4c13dcef07503c935dc6605fa7fbd2ee98974e5c is created.
+I1017 20:21:10.734606 11820  3336 global_state_accessor.cc:25] Redis server address = 10.19.47.250:6379, is test flag = 0
+I1017 20:21:10.735607 11820  5484 service_based_accessor.cc:739] Received notification for node id = 96eab744340fcb753579ccbc860340d9722b3664, IsAlive = 1
+I1017 20:21:10.738607 11820  3336 redis_client.cc:141] RedisClient connected.
+I1017 20:21:10.738607 11820  3336 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 20:21:10.740608 11820  3336 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1017 20:21:12.774600 11820  3336 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: ccde4f3a06246332656e386ac423000000000000
+I1017 20:21:12.814358 11820  3336 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1017 21:37:48.711061 11820  3336 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+F1017 21:38:15.115752 11820  5484 service_based_gcs_client.cc:104]  Check failed: num_attempts < RayConfig::instance().gcs_service_connect_retries() No entry found for GcsServerAddress

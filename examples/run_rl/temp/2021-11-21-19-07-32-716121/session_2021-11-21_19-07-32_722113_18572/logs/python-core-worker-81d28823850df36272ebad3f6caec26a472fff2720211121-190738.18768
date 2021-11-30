@@ -1,0 +1,22 @@
+Log file created at: 2021/11/21 19:07:38
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1121 19:07:38.590559 18768  6124 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 18768
+I1121 19:07:38.605537 18768  6124 grpc_server.cc:74] worker server started, listening on port 12604.
+I1121 19:07:38.617540 18768  6124 core_worker.cc:318] Initializing worker at address: 192.168.11.46:12604, worker ID 81d28823850df36272ebad3f6caec26a472fff27, raylet f8690bbd311bce5f5333b19dfed6c7feae030828
+W1121 19:07:38.619541 18768  6124 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.731884 18768  6124 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.838917 18768  6124 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.948309 18768  6124 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:39.056253 18768  6124 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1121 19:07:39.168735 18768  6124 redis_client.cc:141] RedisClient connected.
+I1121 19:07:39.168735 18768  6124 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:39.168735 18768  6124 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1121 19:07:39.170723 18768  6124 core_worker.cc:189] Worker 81d28823850df36272ebad3f6caec26a472fff27 is created.
+I1121 19:07:39.170723 18768  6124 global_state_accessor.cc:25] Redis server address = 192.168.11.46:6379, is test flag = 0
+I1121 19:07:39.171736 18768  8620 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 1
+I1121 19:07:39.172735 18768  6124 redis_client.cc:141] RedisClient connected.
+I1121 19:07:39.172735 18768  6124 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:39.173724 18768  6124 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1121 19:07:41.172917 18768  6124 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 7e6f1859a9900608670dcd6e3743000000000000
+I1121 19:09:09.393074 18768  8620 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 0
