@@ -1,0 +1,22 @@
+Log file created at: 2021/12/01 21:24:33
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 21:24:33.050262 52696  5916 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 52696
+I1201 21:24:33.053254 52696  5916 grpc_server.cc:74] worker server started, listening on port 59995.
+I1201 21:24:33.056248 52696  5916 core_worker.cc:318] Initializing worker at address: 10.16.199.149:59995, worker ID d1c2e5a55177de6d2fb7b95f396425e0d897751f, raylet 598048c1ff76e558d617062552d64965c5041bcb
+W1201 21:24:33.082204 52696  5916 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1201 21:24:33.193161 52696  5916 redis_client.cc:141] RedisClient connected.
+I1201 21:24:33.194159 52696  5916 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:24:33.194159 52696  5916 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1201 21:24:33.195155 52696  5916 core_worker.cc:189] Worker d1c2e5a55177de6d2fb7b95f396425e0d897751f is created.
+I1201 21:24:33.196153 52696  5916 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 21:24:33.197150 52696 21320 service_based_accessor.cc:739] Received notification for node id = 598048c1ff76e558d617062552d64965c5041bcb, IsAlive = 1
+I1201 21:24:33.222159 52696  5916 redis_client.cc:141] RedisClient connected.
+I1201 21:24:33.222159 52696  5916 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:24:33.223156 52696  5916 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1201 21:24:35.213440 52696  5916 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: bc9416b899c0baa4ba871748f242000000000000
+I1201 21:24:35.213440 52696  5916 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1201 21:24:40.214200 52696  5916 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1201 21:24:58.008435 52696  5916 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1201 21:24:58.009400 52696  5916 core_worker.cc:212] Removed worker d1c2e5a55177de6d2fb7b95f396425e0d897751f
+I1201 21:24:58.012392 52696  5916 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 52696

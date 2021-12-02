@@ -6,6 +6,7 @@ from collections import OrderedDict
 
 from rl_with_videos.algorithms.sac import SAC
 from rl_with_videos.models.utils import flatten_input_structure
+from rl_with_videos.video_understanding.LRCNs import LRCNs
 
 
 class RLVU(SAC):
@@ -27,8 +28,8 @@ class RLVU(SAC):
                  domain_shift=False,
                  domain_shift_generator_weight=0.01,
                  domain_shift_discriminator_weight=0.01,
-                 paired_loss_scale=1.0,
-                 paired_data_pool=None,
+                 video_loss_scale=1.0,
+                 video_data_pool=None,
                  shared_preprocessor_model=None,
                  **kwargs):
         print("\n\n\n\n\nkwargs in rlv:", kwargs)
@@ -45,6 +46,12 @@ class RLVU(SAC):
         self._domain_shift = domain_shift
         self._domain_shift_generator_weight = domain_shift_generator_weight
         self._domain_shift_discriminator_weight = domain_shift_discriminator_weight
+        
+        self._video_understanding = True
+        self._video_understanding_model = LRCNs((None, 6), 2)
+        self._video_data_pool = video_data_pool
+        self._video_loss_scale = video_loss_scale
+        self._video_loss_lr = 3e-4
 
         self._remove_rewards = remove_rewards
         self._replace_rewards_scale = replace_rewards_scale
@@ -69,6 +76,7 @@ class RLVU(SAC):
             self._init_reward_generation()
 
         self._init_inverse_model()
+        self._init_sequence_model()
 
         self._init_actor_update()
         self._init_critic_update()
@@ -137,6 +145,23 @@ class RLVU(SAC):
             'action_free': action_free_placeholders,
             'action_conditioned': action_conditioned_placeholders
         }
+        
+        if self._video_data_pool:
+            video_placeholders = {
+                'videos_no_aug': tf.placeholder(tf.float32,
+                                                  shape=(None, 30, 6),
+                                                  name="video_no_aug")
+                ,
+                'done': tf.placeholder(
+                    tf.float32,
+                    shape=(None, 1),
+                    name='rewards',
+                ),
+                'iteration': tf.placeholder(
+                    tf.int64, shape=(), name='iteration',
+                ),
+            }
+            self._placeholders['video'] = video_placeholders
 
         if self._domain_shift:
             self._domains_ph = tf.placeholder(tf.float32, shape=(None, 1), name='domains')
@@ -149,6 +174,9 @@ class RLVU(SAC):
             'action_conditioned': batch,
             'action_free': action_free_batch
         }
+        if self._video_understanding:
+            video_batch_size = 32
+            combined_batch['video_data'] = self._video_data_pool.random_batch(video_batch_size)
 
         return combined_batch
 
@@ -168,6 +196,10 @@ class RLVU(SAC):
         if self._domain_shift:
             feed_dict[self._domains_ph] = np.concatenate([np.zeros(batch['action_conditioned']['terminals'].shape),
                                                           np.ones(batch['action_free']['terminals'].shape)])
+        if self._video_understanding:
+            feed_dict[self._placeholders['video']['videos_no_aug']] = batch['video_data']['sequences']
+            feed_dict[self._placeholders['video']['done']] = batch['video_data']['done']
+        
         return feed_dict
 
     def _init_augmentation(self):
@@ -219,6 +251,28 @@ class RLVU(SAC):
                                                                              self._placeholders['action_free'][
                                                                                  'terminals'], dtype=tf.float32))
 
+    def _init_sequence_model(self):
+        """
+        Define the video understanding model
+        """
+        video_inputs = self._placeholders['video']['videos_no_aug']
+        video_targets = self._placeholders['video']['done']
+        
+        pred_outputs = self._video_understanding_model(video_inputs)
+        
+        video_understanding_loss = tf.keras.losses.CategoricalCrossentropy()(video_targets, pred_outputs)
+        self._video_understanding_loss = self._video_loss_scale * video_understanding_loss
+        
+        self._video_understanding_optimizer = tf.compat.v1.train.AdamOptimizer(
+            learning_rate=self._video_loss_lr,
+            name='video_understanding_optimizer')
+        
+        vu_train_op = self._video_understanding_optimizer.minimize(loss=video_understanding_loss,
+                                                                  var_list=self._video_understanding_model.trainable_variables)
+
+        self._training_ops.update({'video_understanding_model': vu_train_op})
+        
+        
     def _init_inverse_model(self):
         """ Creates minimization ops for inverse model.
 
@@ -317,6 +371,9 @@ class RLVU(SAC):
             diagnosables['domain_shift_discriminator'] = self._domain_shift_discriminator_loss
             diagnosables['domain_shift_generator'] = self._domain_shift_generator_loss
             diagnosables['domain_shift_score'] = self._domain_shift_score
+        
+        if self._video_understanding:
+            diagnosables['video_understanding'] = self._video_understanding_loss
 
         diagnostic_metrics = OrderedDict((
             ('mean', tf.reduce_mean),

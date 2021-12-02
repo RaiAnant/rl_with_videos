@@ -1,5 +1,7 @@
 from copy import deepcopy
 
+from rl_with_videos.replay_pools import video_replay_pool
+
 from . import (
     action_free_replay_pool,
     simple_replay_pool,
@@ -23,6 +25,7 @@ POOL_CLASSES = {
     'ExtraPolicyInfoReplayPool': (
         extra_policy_info_replay_pool.ExtraPolicyInfoReplayPool),
     'UnionPool': union_pool.UnionPool,
+    'VideoReplayPool': video_replay_pool.VideoReplayPool,
 }
 
 DEFAULT_REPLAY_POOL = 'SimpleReplayPool'

@@ -51,7 +51,7 @@ class ExperimentRunnerRL(ExperimentRunner):
         policy = self.policy = get_policy_from_variant(variant, training_environment, Qs)    # FeedforwardGaussianPolicy at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\policies\utils.py
         initial_exploration_policy = self.initial_exploration_policy = (
             get_policy('UniformPolicy', training_environment))   #UniformPolicy at C:\Users\Anant Rai\Repositories\rl_with_videos\rl_with_videos\policies\uniform_policy.py
-
+        
         algorithm_kwargs = {
             'variant': self._variant,
             'training_environment': self.training_environment,
@@ -63,12 +63,22 @@ class ExperimentRunnerRL(ExperimentRunner):
             'sampler': sampler,
             'session': self._session,
         }
+        
 
         if 'paired_data_pool' in variant and variant['paired_data_pool'] is not None:
             print("\n\n\n\n\nusing paired data pool\n\n\n\n\n\n")
             algorithm_kwargs['shared_preprocessor_model'] = shared_preprocessor
             algorithm_kwargs['paired_data_pool'] = get_replay_pool_from_variant(variant['paired_data_pool'],
                                                                                 training_environment)
+            
+        elif 'video_data_pool' in variant and variant['video_data_pool'] is not None:
+            print("\n\n\n\n\nusing video understanding data pool\n\n\n\n\n\n")
+            # algorithm_kwargs['shared_preprocessor_model'] = shared_preprocessor   # shared encoder for video understanding
+            algorithm_kwargs['video_data_pool'] = get_replay_pool_from_variant(variant['video_data_pool'],
+                                                                                training_environment)
+        else:
+            pass
+            
 
         print("algorithm type:", self._variant['algorithm_params']['type'])
         if self._variant['algorithm_params']['type'] in ['RLV', 'RLVU']:

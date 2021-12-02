@@ -1,0 +1,4 @@
+Log file created at: 2021/12/01 17:37:54
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 17:37:54.438233 55308 43108 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 55308

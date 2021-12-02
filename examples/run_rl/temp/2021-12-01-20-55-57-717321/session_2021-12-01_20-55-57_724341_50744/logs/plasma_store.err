@@ -1,0 +1,2 @@
+src/ray/plasma/store.cc:1165: Allowing the Plasma store to use up to 1.24294GB of memory.
+src/ray/plasma/store.cc:1179: Starting object store with directory C:\Users\irohc\AppData\Local\Temp and huge page support disabled

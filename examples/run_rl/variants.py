@@ -195,19 +195,20 @@ def get_variant_spec(args):
         }
         if args.paired_data_path is not None:
             variant_spec['paired_data_pool'] = {
-                    'replay_pool_params': {
-                        'type': 'ActionFreeReplayPool',
-                        'kwargs': {
-                            'max_size': 1e6,
-                            'data_path': args.paired_data_path,
-                            'remove_rewards': True,
-                            'max_demo_length': args.max_demo_length,
-                            'use_ground_truth_actions': False,
-                        }
+                'replay_pool_params': {
+                    'type': 'ActionFreeReplayPool',
+                    'kwargs': {
+                        'max_size': 1e6,
+                        'data_path': args.paired_data_path,
+                        'remove_rewards': True,
+                        'max_demo_length': args.max_demo_length,
+                        'use_ground_truth_actions': False,
                     }
                 }
+            }
         else:
             variant_spec['paired_data_pool'] = None
+        
         variant_spec['algorithm_params']['kwargs']['remove_rewards'] = args.remove_rewards
         variant_spec['algorithm_params']['kwargs']['replace_rewards_scale'] = args.replace_rewards_scale
         variant_spec['algorithm_params']['kwargs']['replace_rewards_bottom'] = args.replace_rewards_bottom
@@ -242,25 +243,40 @@ def get_variant_spec(args):
         }
         if args.paired_data_path is not None:
             variant_spec['paired_data_pool'] = {
-                    'replay_pool_params': {
-                        'type': 'ActionFreeReplayPool',
-                        'kwargs': {
-                            'max_size': 1e6,
-                            'data_path': args.paired_data_path,
-                            'remove_rewards': True,
-                            'max_demo_length': args.max_demo_length,
-                            'use_ground_truth_actions': False,
-                        }
+                'replay_pool_params': {
+                    'type': 'ActionFreeReplayPool',
+                    'kwargs': {
+                        'max_size': 1e6,
+                        'data_path': args.paired_data_path,
+                        'remove_rewards': True,
+                        'max_demo_length': args.max_demo_length,
+                        'use_ground_truth_actions': False,
                     }
                 }
+            }
         else:
             variant_spec['paired_data_pool'] = None
+        
+        if args.video_data_path is not None:
+            variant_spec['video_data_pool'] = {
+                'replay_pool_params': {
+                    'type': 'VideoReplayPool',
+                    'kwargs': {
+                        'max_size': 1e5,
+                        'data_path': args.video_data_path,
+                        'max_demo_length': args.max_demo_length,
+                    }
+                }
+            }
+        else:
+            variant_spec['video_data_pool'] = None
+            
         variant_spec['algorithm_params']['kwargs']['remove_rewards'] = args.remove_rewards
         variant_spec['algorithm_params']['kwargs']['replace_rewards_scale'] = args.replace_rewards_scale
         variant_spec['algorithm_params']['kwargs']['replace_rewards_bottom'] = args.replace_rewards_bottom
         variant_spec['algorithm_params']['kwargs']['use_ground_truth_actions'] = args.use_ground_truth_actions
         variant_spec['algorithm_params']['kwargs']['use_zero_actions'] = args.use_zero_actions
-        variant_spec['algorithm_params']['kwargs']['paired_loss_scale'] = args.paired_loss_scale
+        # variant_spec['algorithm_params']['kwargs']['paired_loss_scale'] = args.paired_loss_scale
         if args.algorithm in ('RLVU'):
             variant_spec['inverse_model'] = {
                 'hidden_layer_sizes': [64, 64, 64],

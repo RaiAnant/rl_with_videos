@@ -53,6 +53,11 @@ class ActionFreeReplayPool(FlexibleReplayPool):
 
         super(ActionFreeReplayPool, self).__init__(
             *args, fields_attrs=fields, **kwargs)
+        
+        print("********************************")
+        print(fields)
+        print("********************************")
+        
         print("about to load replay pool")
         self.load_experience(data_path)
         print("loaded experience of size:", self.size) 

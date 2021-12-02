@@ -1,0 +1,5 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1201 20:39:51.005801 44320 22804 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 20:39:51.009791 44320 22804 redis_client.cc:141] RedisClient connected.
+I1201 20:39:53.002415 44320 22804 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 20:39:53.005407 44320 22804 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.

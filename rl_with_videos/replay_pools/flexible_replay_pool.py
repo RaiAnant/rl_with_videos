@@ -73,6 +73,11 @@ class FlexibleReplayPool(ReplayPool):
 
     def random_batch(self, batch_size, field_name_filter=None, **kwargs):
         random_indices = self.random_indices(batch_size)
+        
+        # print("********************************")
+        # print(random_indices)
+        # print("********************************")
+        
         return self.batch_by_indices(
             random_indices, field_name_filter=field_name_filter, **kwargs)
 
@@ -113,6 +118,10 @@ class FlexibleReplayPool(ReplayPool):
         if field_name_filter is not None:
             field_names = self.filter_fields(
                 field_names, field_name_filter)
+        
+        # print("********************************")
+        # print(field_names)
+        # print("********************************")
 
         return {
             field_name: self.fields[field_name][indices]

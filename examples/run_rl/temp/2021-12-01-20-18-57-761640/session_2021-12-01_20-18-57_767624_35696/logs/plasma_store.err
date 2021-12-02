@@ -1,0 +1,18 @@
+src/ray/plasma/store.cc:1165: Allowing the Plasma store to use up to 1.81714GB of memory.
+src/ray/plasma/store.cc:1179: Starting object store with directory C:\Users\irohc\AppData\Local\Temp and huge page support disabled
+src/ray/plasma/store.cc:745: Disconnecting client on fd 10
+src/ray/plasma/store.cc:745: Disconnecting client on fd 9
+src/ray/plasma/store.cc:745: Disconnecting client on fd 13
+src/ray/plasma/store.cc:745: Disconnecting client on fd 21
+src/ray/plasma/store.cc:745: Disconnecting client on fd 11
+src/ray/plasma/store.cc:745: Disconnecting client on fd 12
+src/ray/plasma/store.cc:745: Disconnecting client on fd 14
+src/ray/plasma/store.cc:745: Disconnecting client on fd 16
+src/ray/plasma/store.cc:745: Disconnecting client on fd 18
+src/ray/plasma/store.cc:745: Disconnecting client on fd 19
+src/ray/plasma/store.cc:745: Disconnecting client on fd 15
+src/ray/plasma/store.cc:745: Disconnecting client on fd 5
+src/ray/plasma/store.cc:745: Disconnecting client on fd 7
+src/ray/plasma/store.cc:745: Disconnecting client on fd 20
+src/ray/plasma/store.cc:745: Disconnecting client on fd 17
+src/ray/plasma/store.cc:745: Disconnecting client on fd 8

@@ -1,0 +1,21 @@
+Log file created at: 2021/12/01 20:05:08
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 20:05:08.207803 57396 58176 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 57396
+I1201 20:05:08.211755 57396 58176 grpc_server.cc:74] worker server started, listening on port 51943.
+I1201 20:05:08.215744 57396 58176 core_worker.cc:318] Initializing worker at address: 10.16.199.149:51943, worker ID adb10a55b23bdc7d31943362c994ca37b39799da, raylet a288730f859328f16d45d7635138bd4c37dd693c
+I1201 20:05:08.219736 57396 58176 redis_client.cc:141] RedisClient connected.
+I1201 20:05:08.219736 57396 58176 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 20:05:08.220733 57396 58176 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1201 20:05:08.221729 57396 58176 core_worker.cc:189] Worker adb10a55b23bdc7d31943362c994ca37b39799da is created.
+I1201 20:05:08.222726 57396 58176 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 20:05:08.223726 57396 52904 service_based_accessor.cc:739] Received notification for node id = a288730f859328f16d45d7635138bd4c37dd693c, IsAlive = 1
+I1201 20:05:08.224721 57396 58176 redis_client.cc:141] RedisClient connected.
+I1201 20:05:08.224721 57396 58176 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 20:05:08.225720 57396 58176 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1201 20:05:10.228849 57396 58176 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: bc5b707fc3cc566bc1e985da4e72000000000000
+I1201 20:05:10.229847 57396 58176 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1201 20:05:15.066992 57396 58176 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1201 20:05:16.528877 57396 58176 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1201 20:05:16.530872 57396 58176 core_worker.cc:212] Removed worker adb10a55b23bdc7d31943362c994ca37b39799da
+I1201 20:05:16.535858 57396 58176 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 57396

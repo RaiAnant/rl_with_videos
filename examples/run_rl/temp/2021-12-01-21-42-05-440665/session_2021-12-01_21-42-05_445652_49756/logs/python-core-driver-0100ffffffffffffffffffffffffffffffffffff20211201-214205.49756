@@ -1,0 +1,25 @@
+Log file created at: 2021/12/01 21:42:05
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 21:42:05.815325 49756 54720 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 49756
+I1201 21:42:08.877137 49756 54720 grpc_server.cc:74] driver server started, listening on port 58933.
+I1201 21:42:08.882123 49756 54720 core_worker.cc:318] Initializing worker at address: 10.16.199.149:58933, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 2dcd9abb110460e572b21ff9584ce8427aad7670
+I1201 21:42:08.888108 49756 54720 redis_client.cc:141] RedisClient connected.
+I1201 21:42:08.888108 49756 54720 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:42:08.892097 49756 54720 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1201 21:42:08.896086 49756 54720 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1201 21:42:08.897084 49756 54720 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 21:42:08.899078 49756 50000 service_based_accessor.cc:739] Received notification for node id = 2dcd9abb110460e572b21ff9584ce8427aad7670, IsAlive = 1
+I1201 21:42:08.900076 49756 54720 redis_client.cc:141] RedisClient connected.
+I1201 21:42:08.900076 49756 54720 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:42:08.901073 49756 54720 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1201 21:42:10.895634 49756 54720 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 5b4d997964d333869a0943a09830000000000000
+I1201 21:42:11.079258 49756 50000 direct_task_transport.cc:86] Connected to 10.16.199.149:59017
+I1201 21:42:18.156795 49756 50000 direct_actor_transport.cc:134] Resetting caller starts at for actor 45b95b1c0100 from 0 to 0
+I1201 21:42:18.156795 49756 50000 core_worker.cc:1305] received notification on actor, state: ALIVE, actor_id: 45b95b1c0100, ip address: 10.16.199.149, port: 59017, worker_id: 8357b98e6bf6b366392b826effae3a3eae31c9cc, raylet_id: 2dcd9abb110460e572b21ff9584ce8427aad7670
+I1201 21:42:36.163561 49756 50000 core_worker.cc:1326] Owner's handle and creation ID ffffffffffffffff45b95b1c010000c001000000 has gone out of scope, sending message to actor 45b95b1c0100 to do a clean exit.
+I1201 21:42:36.164548 49756 50000 direct_actor_transport.cc:193] Sending KillActor request to actor 45b95b1c0100
+I1201 21:42:36.164548 49756 50000 direct_actor_transport.cc:162] Failing pending tasks for actor 45b95b1c0100
+I1201 21:42:36.165544 49756 50000 core_worker.cc:1305] received notification on actor, state: DEAD, actor_id: 45b95b1c0100, ip address: 10.16.199.149, port: 59017, worker_id: 8357b98e6bf6b366392b826effae3a3eae31c9cc, raylet_id: 2dcd9abb110460e572b21ff9584ce8427aad7670
+I1201 21:42:36.685336 49756 54720 core_worker.cc:212] Removed worker 0100ffffffffffffffffffffffffffffffffffff
+I1201 21:42:36.687330 49756 54720 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 49756
