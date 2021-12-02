@@ -1,0 +1,24 @@
+Log file created at: 2021/12/01 21:35:03
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 21:35:03.400465 43464 23100 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 43464
+I1201 21:35:03.404455 43464 23100 grpc_server.cc:74] worker server started, listening on port 53621.
+I1201 21:35:03.408445 43464 23100 core_worker.cc:318] Initializing worker at address: 10.16.199.149:53621, worker ID 1d6739129f0f7795d0d1e2b6be71c450c8103bc7, raylet 4af750506bf78e8b85e8d5474375582883953286
+W1201 21:35:03.410439 43464 23100 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1201 21:35:03.524170 43464 23100 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1201 21:35:03.636350 43464 23100 redis_client.cc:141] RedisClient connected.
+I1201 21:35:03.636350 43464 23100 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:35:03.636350 43464 23100 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1201 21:35:03.638310 43464 23100 core_worker.cc:189] Worker 1d6739129f0f7795d0d1e2b6be71c450c8103bc7 is created.
+I1201 21:35:03.638310 43464 23100 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 21:35:03.639322 43464 45416 service_based_accessor.cc:739] Received notification for node id = 4af750506bf78e8b85e8d5474375582883953286, IsAlive = 1
+W1201 21:35:03.665258 43464 23100 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1201 21:35:03.772986 43464 23100 redis_client.cc:141] RedisClient connected.
+I1201 21:35:03.772986 43464 23100 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 21:35:03.773948 43464 23100 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1201 21:35:05.770880 43464 23100 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 51c5062524e36701bd6e916e5aaf000000000000
+I1201 21:35:05.770880 43464 23100 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1201 21:35:10.561182 43464 23100 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1201 21:35:26.646852 43464 23100 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1201 21:35:26.647851 43464 23100 core_worker.cc:212] Removed worker 1d6739129f0f7795d0d1e2b6be71c450c8103bc7
+I1201 21:35:26.651854 43464 23100 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 43464

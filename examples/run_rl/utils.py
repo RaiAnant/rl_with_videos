@@ -255,6 +255,12 @@ def get_parser(allow_policy_list=False):
         type=str,
         default=None,
         )
+    
+    parser.add_argument(
+        "--video_data_path",
+        type=str,
+        default=None,
+        )
 
     parser.add_argument(
         "--domain_shift_discriminator_weight",

@@ -1,0 +1,23 @@
+Log file created at: 2021/12/01 20:09:37
+Running on machine: LAPTOP-P22TAOAA
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1201 20:09:37.278525 38284 57392 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 38284
+I1201 20:09:37.281491 38284 57392 grpc_server.cc:74] worker server started, listening on port 52601.
+I1201 20:09:37.285481 38284 57392 core_worker.cc:318] Initializing worker at address: 10.16.199.149:52601, worker ID 6276dc0cfd1db2c204e404348a9544ac1ce92275, raylet c47b562a26358453d2db491a202a4f52d17c3be8
+I1201 20:09:37.312736 38284 57392 redis_client.cc:141] RedisClient connected.
+I1201 20:09:37.312736 38284 57392 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 20:09:37.312736 38284 57392 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1201 20:09:37.314731 38284 57392 core_worker.cc:189] Worker 6276dc0cfd1db2c204e404348a9544ac1ce92275 is created.
+I1201 20:09:37.314731 38284 57392 global_state_accessor.cc:25] Redis server address = 10.16.199.149:6379, is test flag = 0
+I1201 20:09:37.315729 38284 47788 service_based_accessor.cc:739] Received notification for node id = c47b562a26358453d2db491a202a4f52d17c3be8, IsAlive = 1
+W1201 20:09:37.317724 38284 57392 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1201 20:09:37.432361 38284 57392 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1201 20:09:37.541870 38284 57392 redis_client.cc:141] RedisClient connected.
+I1201 20:09:37.541870 38284 57392 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1201 20:09:37.542871 38284 57392 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1201 20:09:39.550474 38284 57392 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 1a38e5d3d74bfa4e654d50cd78f3000000000000
+I1201 20:09:39.550474 38284 57392 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1201 20:09:44.400411 38284 57392 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1201 20:09:45.844197 38284 57392 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1201 20:09:45.845194 38284 57392 core_worker.cc:212] Removed worker 6276dc0cfd1db2c204e404348a9544ac1ce92275
+I1201 20:09:45.849198 38284 57392 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 38284

@@ -50,7 +50,11 @@ Then, run the following commands.
 
 ```
 cd examples/run_rl
-python3 -u main.py --task=AcrobotContinuous-v1 --algorithm RLV --exp-name EXP_NAME --replace_rewards_bottom=-1.0 --replace_rewards_scale=10.0 --gpus=1 --trial-gpus=1 --replay_pool_load_path PATH/TO/REPLAY/POOL
+python -u main.py --task=AcrobotContinuous-v1 --algorithm RLV --exp-name EXP_NAME --replace_rewards_bottom=-1.0 --replace_rewards_scale=10.0 --gpus=1 --trial-gpus=1 --replay_pool_load_path PATH/TO/REPLAY/POOL
+```
+
+```
+python -u main.py --task=AcrobotContinuous-v1 --algorithm RLVU --exp-name EXP_NAME --replace_rewards_bottom=-1.0 --replace_rewards_scale=10.0 --gpus=1 --trial-gpus=1 --replay_pool_load_path C:\nyu\DRL\final_project\dataset\acrobot-975-1000.pkl --video_data_path C:\nyu\DRL\final_project\dataset\acrobot_sequence.pkl
 ```
 
 ## Pushing with Human Observations
