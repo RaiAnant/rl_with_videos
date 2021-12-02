@@ -62,7 +62,7 @@ class ExperimentRunnerRL(ExperimentRunner):
             'Qs': Qs,
             'pool': replay_pool,
             'sampler': sampler,
-            'session': self._session,
+            'session': self._session,  #doubt what is session?
         }
 
         if 'paired_data_pool' in variant and variant['paired_data_pool'] is not None:

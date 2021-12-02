@@ -38,7 +38,7 @@ class RLV(SAC):
         self._paired_loss_lr = 3e-4
 
         self._domain_shift = domain_shift
-        self._domain_shift_generator_weight = domain_shift_generator_weight
+        self._domain_shift_generator_weight = domain_shift_generator_weight #is this the encoder?
         self._domain_shift_discriminator_weight = domain_shift_discriminator_weight
 
         self._remove_rewards = remove_rewards
@@ -133,7 +133,7 @@ class RLV(SAC):
             'action_conditioned': action_conditioned_placeholders
         }
 
-        if self._paired_data_pool is not None:
+        if self._paired_data_pool is not None:  #here
             self._placeholders['paired_data'] = {
                 'obs_of_observation_no_aug': tf.placeholder(tf.float32,
                                                             shape=(None, *self._observation_shape),
@@ -154,7 +154,7 @@ class RLV(SAC):
             'action_conditioned': batch,
             'action_free': action_free_batch
         }
-        if self._paired_data_pool is not None:
+        if self._paired_data_pool is not None: #here
             paired_data_batch_size = 256
             combined_batch['paired_data'] = self._paired_data_pool.random_batch(paired_data_batch_size)
         return combined_batch

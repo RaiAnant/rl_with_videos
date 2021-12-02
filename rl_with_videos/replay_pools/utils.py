@@ -9,6 +9,12 @@ from . import (
     active_replay_pool)
 
 
+'''
+action_free_replay_pool:  ActionFreeReplayPool
+replay_pool: SimpleReplayPool
+'''
+
+
 POOL_CLASSES = {
     'ActionFreeReplayPool': action_free_replay_pool.ActionFreeReplayPool,
     'SimpleReplayPool': simple_replay_pool.SimpleReplayPool,
