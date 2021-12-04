@@ -65,6 +65,7 @@ class RLVU(SAC):
         super(RLVU, self).__init__(**kwargs)
 
     def _build(self):
+
         self._training_ops = {}
 
         self._init_global_step()
@@ -81,6 +82,8 @@ class RLVU(SAC):
         self._init_actor_update()
         self._init_critic_update()
         self._init_diagnostics_ops()
+        self.sampler._init_video_data_pool(self._video_data_pool)
+
 
     def _init_placeholders(self):
         action_conditioned_placeholders = {

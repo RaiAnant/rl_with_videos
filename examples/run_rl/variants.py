@@ -5,9 +5,9 @@ from rl_with_videos.misc.utils import get_git_rev, deep_update
 from rl_with_videos.misc.generate_goal_examples import DOOR_TASKS, PUSH_TASKS, PICK_TASKS
 
 M = 256
-#M = 400
+# M = 400
 M_layers = 2
-#M_layers = 4
+# M_layers = 4
 REPARAMETERIZE = True
 
 NUM_COUPLING_LAYERS = 2
@@ -122,9 +122,9 @@ def get_variant_spec_base(universe, domain, task, policy, algorithm):
     # )
     algorithm_params = ALGORITHM_PARAMS_BASE
     algorithm_params = deep_update(
-            algorithm_params,
-            ALGORITHM_PARAMS_ADDITIONAL.get(algorithm, {})
-        )
+        algorithm_params,
+        ALGORITHM_PARAMS_ADDITIONAL.get(algorithm, {})
+    )
 
     variant_spec = {
         'domain': domain,
@@ -132,7 +132,7 @@ def get_variant_spec_base(universe, domain, task, policy, algorithm):
         'universe': universe,
         'git_sha': get_git_rev(),
 
-        #'env_params': ENV_PARAMS.get(domain, {}).get(task, {}),
+        # 'env_params': ENV_PARAMS.get(domain, {}).get(task, {}),
         'policy_params': deep_update(
             POLICY_PARAMS_BASE[policy],
             POLICY_PARAMS_FOR_DOMAIN[policy].get(domain, {})
@@ -164,13 +164,14 @@ def get_variant_spec_base(universe, domain, task, policy, algorithm):
             'seed': tune.sample_from(
                 lambda spec: np.random.randint(0, 10000)),
             'checkpoint_at_end': True,
-            'checkpoint_frequency':  DEFAULT_NUM_EPOCHS // NUM_CHECKPOINTS,
+            'checkpoint_frequency': DEFAULT_NUM_EPOCHS // NUM_CHECKPOINTS,
             'checkpoint_replay_pool': False,
         },
     }
+    if algorithm == 'RLVU':
+        variant_spec['sampler_params']['type'] = 'SimpleSamplerVU'
 
     return variant_spec
-
 
 
 def get_variant_spec(args):
@@ -208,7 +209,7 @@ def get_variant_spec(args):
             }
         else:
             variant_spec['paired_data_pool'] = None
-        
+
         variant_spec['algorithm_params']['kwargs']['remove_rewards'] = args.remove_rewards
         variant_spec['algorithm_params']['kwargs']['replace_rewards_scale'] = args.replace_rewards_scale
         variant_spec['algorithm_params']['kwargs']['replace_rewards_bottom'] = args.replace_rewards_bottom
@@ -225,8 +226,10 @@ def get_variant_spec(args):
             }
             variant_spec['algorithm_params']['kwargs']['preprocessor_for_inverse'] = args.domain_shift
             variant_spec['algorithm_params']['kwargs']['domain_shift'] = args.domain_shift
-            variant_spec['algorithm_params']['kwargs']['domain_shift_generator_weight'] = args.domain_shift_generator_weight
-            variant_spec['algorithm_params']['kwargs']['domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
+            variant_spec['algorithm_params']['kwargs'][
+                'domain_shift_generator_weight'] = args.domain_shift_generator_weight
+            variant_spec['algorithm_params']['kwargs'][
+                'domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
 
     elif args.algorithm in ('RLVU',):
         variant_spec['action_free_replay_pool'] = {
@@ -256,7 +259,7 @@ def get_variant_spec(args):
             }
         else:
             variant_spec['paired_data_pool'] = None
-        
+
         if args.video_data_path is not None:
             variant_spec['video_data_pool'] = {
                 'replay_pool_params': {
@@ -270,7 +273,7 @@ def get_variant_spec(args):
             }
         else:
             variant_spec['video_data_pool'] = None
-            
+
         variant_spec['algorithm_params']['kwargs']['remove_rewards'] = args.remove_rewards
         variant_spec['algorithm_params']['kwargs']['replace_rewards_scale'] = args.replace_rewards_scale
         variant_spec['algorithm_params']['kwargs']['replace_rewards_bottom'] = args.replace_rewards_bottom
@@ -287,23 +290,23 @@ def get_variant_spec(args):
             }
             variant_spec['algorithm_params']['kwargs']['preprocessor_for_inverse'] = args.domain_shift
             variant_spec['algorithm_params']['kwargs']['domain_shift'] = args.domain_shift
-            variant_spec['algorithm_params']['kwargs']['domain_shift_generator_weight'] = args.domain_shift_generator_weight
-            variant_spec['algorithm_params']['kwargs']['domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
-
+            variant_spec['algorithm_params']['kwargs'][
+                'domain_shift_generator_weight'] = args.domain_shift_generator_weight
+            variant_spec['algorithm_params']['kwargs'][
+                'domain_shift_discriminator_weight'] = args.domain_shift_discriminator_weight
 
     variant_spec['algorithm_params']['kwargs']['n_epochs'] = \
-            n_epochs
+        n_epochs
 
     variant_spec['algorithm_params']['kwargs']['should_augment'] = False
     variant_spec['algorithm_params']['kwargs']['trans_dist'] = args.trans_dist
     variant_spec['algorithm_params']['kwargs']['n_train_repeat'] = args.n_train_repeat
 
-
     if 'Image48' in task:
         preprocessor_params = {
             'type': 'convnet_preprocessor',
             'kwargs': {
-                #'image_shape': variant_spec['env_params']['image_shape'],
+                # 'image_shape': variant_spec['env_params']['image_shape'],
                 'image_shape': (48, 48, 3),
                 'output_size': M,
                 'conv_filters': (8, 8),
@@ -315,13 +318,15 @@ def get_variant_spec(args):
             },
         }
         if args.domain_shift:
-            preprocessor_params['kwargs']['conv_filters'] = [16, 16, 32] #variant_spec['inverse_model']['conv_filters']
-            preprocessor_params['kwargs']['pool_strides'] = [2]*3#variant_spec['inverse_model']['conv_strides']
-            preprocessor_params['kwargs']['conv_kernel_sizes'] = [5]*3#variant_spec['inverse_model']['conv_kernel_sizes']
+            preprocessor_params['kwargs']['conv_filters'] = [16, 16,
+                                                             32]  # variant_spec['inverse_model']['conv_filters']
+            preprocessor_params['kwargs']['pool_strides'] = [2] * 3  # variant_spec['inverse_model']['conv_strides']
+            preprocessor_params['kwargs']['conv_kernel_sizes'] = [
+                                                                     5] * 3  # variant_spec['inverse_model']['conv_kernel_sizes']
             preprocessor_params['kwargs']['pool_sizes'] = [(2, 2)] * 3
-            variant_spec['Q_params']['kwargs']['hidden_layer_sizes'] = (2*M,) + (M,)*M_layers
-            variant_spec['policy_params']['kwargs']['hidden_layer_sizes'] = (2*M,) + (M,)*M_layers
-#            variant_spec['inverse_model']['hidden_layer_sizes'] = (2*M, M, M)
+            variant_spec['Q_params']['kwargs']['hidden_layer_sizes'] = (2 * M,) + (M,) * M_layers
+            variant_spec['policy_params']['kwargs']['hidden_layer_sizes'] = (2 * M,) + (M,) * M_layers
+            #            variant_spec['inverse_model']['hidden_layer_sizes'] = (2*M, M, M)
             if 'inverse_model' in variant_spec:
                 variant_spec['inverse_model']['preprocessor_params'] = preprocessor_params.copy()
 
@@ -329,13 +334,12 @@ def get_variant_spec(args):
             preprocessor_params.copy())
         variant_spec['Q_params']['kwargs']['preprocessor_params'] = (
             preprocessor_params.copy())
-        variant_spec['replay_pool_params']['kwargs']['max_size'] = min(1000000, int(n_epochs*1000))
-
+        variant_spec['replay_pool_params']['kwargs']['max_size'] = min(1000000, int(n_epochs * 1000))
 
         variant_spec['shared_preprocessor'] = {'use': args.domain_shift,
                                                'preprocessor_params': preprocessor_params.copy()
                                                }
-        
+
         variant_spec['algorithm_params']['kwargs']['should_augment'] = True
 
 

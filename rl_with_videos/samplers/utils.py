@@ -9,6 +9,7 @@ from . import (
     remote_sampler,
     base_sampler,
     simple_sampler,
+    simple_sampler_vu,
     active_sampler)
 
 
@@ -20,6 +21,7 @@ def get_sampler_from_variant(variant, *args, **kwargs):
         'RemoteSampler': remote_sampler.RemoteSampler,
         'Sampler': base_sampler.BaseSampler,
         'SimpleSampler': simple_sampler.SimpleSampler,
+        'SimpleSamplerVU': simple_sampler_vu.SimpleSamplerVU,
         'ActiveSampler': active_sampler.ActiveSampler,
 
     }
