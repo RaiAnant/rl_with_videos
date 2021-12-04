@@ -61,8 +61,8 @@ class VideoReplayPool(FlexibleReplayPool):
     """ The action-free replay pool should not be added to during runtime
     This removes the methods that were inherited from FlexibleReplayPool
     """
-    def add_sample(self, sample):
-        raise NotImplementedError
+    # def add_sample(self, sample):
+    #     raise NotImplementedError
 
     def add_path(self, path):
         raise NotImplementedError

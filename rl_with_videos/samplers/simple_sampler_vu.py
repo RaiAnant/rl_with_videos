@@ -9,10 +9,10 @@ from .simple_sampler import SimpleSampler
 class SimpleSamplerVU(SimpleSampler):
 
     def _init_video_data_pool(self, video_replay_pool):
+        # impqort pdb; pdb.set_trace() #breakpoint
         self.video_replay_pool = video_replay_pool
 
     def sample(self):
-
         if self._current_observation is None:
             self._current_observation = self.env.reset()
 
@@ -47,7 +47,10 @@ class SimpleSamplerVU(SimpleSampler):
                 field_name: np.array(values)
                 for field_name, values in self._current_path.items()
             }
+
             self.pool.add_path(last_path)
+            # import pdb; pdb.set_trace() #breakpoint
+            self.video_replay_pool.add_sample({'sequences' :last_path['observations'][-30:], 'done': np.array([1 if terminal else 0])})
             self._last_n_paths.appendleft(last_path)
 
             self._max_path_return = max(self._max_path_return,
