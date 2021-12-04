@@ -1,0 +1,15 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1110 19:46:12.609180 18800  3792 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 19:46:12.617182 18800  3792 redis_client.cc:141] RedisClient connected.
+I1110 19:46:14.628774 18800  3792 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 19:46:14.631776 18800  3792 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+The dashboard on node LAPTOP-JGANR1VS failed with the following error:
+Traceback (most recent call last):
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\dashboard/dashboard.py", line 960, in <module>
+    metrics_export_address=metrics_export_address)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\dashboard/dashboard.py", line 513, in __init__
+    build_dir = setup_static_dir(self.app)
+  File "C:\anaconda3\envs\RLV\lib\site-packages\ray\dashboard/dashboard.py", line 414, in setup_static_dir
+    "&& npm run build)", build_dir)
+FileNotFoundError: [Errno 2] Dashboard build directory not found. If installing from source, please follow the additional steps required to build the dashboard(cd python/ray/dashboard/client && npm ci && npm run build): 'C:\\anaconda3\\envs\\RLV\\lib\\site-packages\\ray\\dashboard\\client/build'
+

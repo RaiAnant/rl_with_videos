@@ -27,7 +27,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
             train_every_n_steps=1,
             n_train_repeat=1,
             max_train_repeat_per_timestep=5,
-            n_initial_exploration_steps=0,
+            n_initial_exploration_steps = 0,
             initial_exploration_policy=None,
             epoch_length=1000,
             eval_n_episodes=10,
@@ -80,7 +80,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
         self._timestep = 0
         self._num_train_steps = 0
 
-    def _init_global_step(self):
+    def _init_global_step(self):  #not clear on this
         self.global_step = training_util.get_or_create_global_step()
         self._training_ops.update({
             'increment_global_step': training_util._increment_global_step(1)
@@ -157,7 +157,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
         pool = self._pool
 
         if not self._training_started:
-            self._init_training()
+            self._init_training() #updates target network. i.e. Qt = Q*tau+(1-tau)Qt
 
             self._initial_exploration_hook(
                 training_environment, self._initial_exploration_policy, pool)
@@ -186,7 +186,7 @@ class RLAlgorithm(tf.contrib.checkpoint.Checkpointable):
                 self._timestep_before_hook()
                 gt.stamp('timestep_before_hook')
 
-                self._do_sampling(timestep=self._total_timestep)
+                self._do_sampling(timestep=self._total_timestep) #sample
                 gt.stamp('sample')
 
                 if self.ready_to_train:

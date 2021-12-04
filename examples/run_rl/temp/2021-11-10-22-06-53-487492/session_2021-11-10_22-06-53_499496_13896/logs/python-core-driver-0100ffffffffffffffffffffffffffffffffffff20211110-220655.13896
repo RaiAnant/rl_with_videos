@@ -1,0 +1,19 @@
+Log file created at: 2021/11/10 22:06:55
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 22:06:55.126358 13896 20080 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 13896
+I1110 22:06:58.188093 13896 20080 grpc_server.cc:74] driver server started, listening on port 26216.
+I1110 22:06:58.194262 13896 20080 core_worker.cc:318] Initializing worker at address: 10.16.234.175:26216, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 2fcb825c58105d83ddaf9faad92e1983b2245411
+I1110 22:06:58.206274 13896 20080 redis_client.cc:141] RedisClient connected.
+I1110 22:06:58.206274 13896 20080 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 22:06:58.210276 13896 20080 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 22:06:58.214277 13896 20080 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1110 22:06:58.214277 13896 20080 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 22:06:58.230281 13896 14792 service_based_accessor.cc:739] Received notification for node id = 2fcb825c58105d83ddaf9faad92e1983b2245411, IsAlive = 1
+I1110 22:06:58.234282 13896 20080 redis_client.cc:141] RedisClient connected.
+I1110 22:06:58.234282 13896 20080 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 22:06:58.242285 13896 20080 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 22:07:00.366263 13896 20080 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: bf0d0b36c63a997ebeec8cc4e4e6000000000000
+E1111 01:04:38.629422 13896 20080 raylet_client.cc:90] IOError: [RayletClient] Connection closed unexpectedly. [RayletClient] Failed to disconnect from raylet.
+I1111 01:04:38.667668 13896 20080 core_worker.cc:212] Removed worker 0100ffffffffffffffffffffffffffffffffffff
+I1111 01:04:38.675633 13896 20080 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 13896

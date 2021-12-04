@@ -1,0 +1,20 @@
+Log file created at: 2021/11/10 21:42:37
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 21:42:37.392853 20600 24532 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 20600
+I1110 21:42:37.399190 20600 24532 grpc_server.cc:74] worker server started, listening on port 25538.
+I1110 21:42:37.404300 20600 24532 core_worker.cc:318] Initializing worker at address: 10.16.234.175:25538, worker ID 0315399c230e4e4bae0de322fdef84f16321b7c8, raylet 211ae62eefbdebc770afc54929330bdd0800dc64
+W1110 21:42:37.406353 20600 24532 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 21:42:37.519932 20600 24532 redis_client.cc:141] RedisClient connected.
+I1110 21:42:37.519932 20600 24532 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:42:37.519932 20600 24532 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 21:42:37.519932 20600 24532 core_worker.cc:189] Worker 0315399c230e4e4bae0de322fdef84f16321b7c8 is created.
+I1110 21:42:37.519932 20600 24532 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 21:42:37.523938 20600 10908 service_based_accessor.cc:739] Received notification for node id = 211ae62eefbdebc770afc54929330bdd0800dc64, IsAlive = 1
+I1110 21:42:37.523938 20600 24532 redis_client.cc:141] RedisClient connected.
+I1110 21:42:37.523938 20600 24532 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:42:37.523938 20600 24532 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 21:42:39.515269 20600 24532 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 5cd9bef46ccc866bdba24390c3ab000000000000
+I1110 21:42:44.522580 20600 24532 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1110 21:42:58.986109 20600 24532 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1110 21:45:02.639696 20600 10908 service_based_accessor.cc:739] Received notification for node id = 211ae62eefbdebc770afc54929330bdd0800dc64, IsAlive = 0

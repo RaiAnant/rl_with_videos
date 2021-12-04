@@ -1,0 +1,26 @@
+Log file created at: 2021/11/08 02:51:18
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1108 02:51:18.419824 20980  9820 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 20980
+I1108 02:51:21.479794 20980  9820 grpc_server.cc:74] driver server started, listening on port 14794.
+I1108 02:51:21.488739 20980  9820 core_worker.cc:318] Initializing worker at address: 10.47.4.64:14794, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 0aab9f063211d62d877a918fbf50bb0f7b3edfe6
+I1108 02:51:21.508615 20980  9820 redis_client.cc:141] RedisClient connected.
+I1108 02:51:21.509608 20980  9820 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1108 02:51:21.522528 20980  9820 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1108 02:51:21.534453 20980  9820 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1108 02:51:21.535447 20980  9820 global_state_accessor.cc:25] Redis server address = 10.47.4.64:6379, is test flag = 0
+I1108 02:51:21.539422 20980 24628 service_based_accessor.cc:739] Received notification for node id = 0aab9f063211d62d877a918fbf50bb0f7b3edfe6, IsAlive = 1
+I1108 02:51:21.544391 20980  9820 redis_client.cc:141] RedisClient connected.
+I1108 02:51:21.544391 20980  9820 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1108 02:51:21.546380 20980  9820 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1108 02:51:23.612859 20980  9820 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: c89d23ef021dc7bece7d2db68c59000000000000
+I1108 02:51:26.846393 20980 24628 direct_task_transport.cc:86] Connected to 10.47.4.64:14920
+I1108 02:51:46.657126 20980 24628 direct_actor_transport.cc:134] Resetting caller starts at for actor 45b95b1c0100 from 0 to 0
+I1108 02:51:46.660107 20980 24628 core_worker.cc:1305] received notification on actor, state: ALIVE, actor_id: 45b95b1c0100, ip address: 10.47.4.64, port: 14920, worker_id: 57ea8da61fc4e32bdd0b6a87cbff58f018a5248a, raylet_id: 0aab9f063211d62d877a918fbf50bb0f7b3edfe6
+E1108 02:56:22.778982 20980 24628 task_manager.cc:320] Task failed: IOError: 2: Stream removed: Type=ACTOR_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=examples.run_rl.main, class_name=ExperimentRunnerRL, function_name=train, function_hash=}, task_id=ef0a6c221819881c45b95b1c0100, job_id=0100, num_args=0, num_returns=2, actor_task_spec={actor_id=45b95b1c0100, actor_caller_id=ffffffffffffffffffffffff0100, actor_counter=0}
+I1108 02:56:22.782958 20980 24628 direct_actor_transport.cc:162] Failing pending tasks for actor 45b95b1c0100
+I1108 02:56:22.782958 20980 24628 core_worker.cc:1305] received notification on actor, state: DEAD, actor_id: 45b95b1c0100, ip address: 10.47.4.64, port: 14920, worker_id: 57ea8da61fc4e32bdd0b6a87cbff58f018a5248a, raylet_id: 0aab9f063211d62d877a918fbf50bb0f7b3edfe6
+E1108 02:56:22.841594 20980  9820 task_manager.cc:320] Task failed: IOError: cancelling all pending tasks of dead actor: Type=ACTOR_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=examples.run_rl.main, class_name=ExperimentRunnerRL, function_name=stop, function_hash=}, task_id=f66d17bae2b0e76545b95b1c0100, job_id=0100, num_args=0, num_returns=2, actor_task_spec={actor_id=45b95b1c0100, actor_caller_id=ffffffffffffffffffffffff0100, actor_counter=1}
+I1108 02:56:22.842597 20980  9820 core_worker.cc:1326] Owner's handle and creation ID ffffffffffffffff45b95b1c010000c001000000 has gone out of scope, sending message to actor 45b95b1c0100 to do a clean exit.
+I1108 02:56:23.424091 20980  9820 core_worker.cc:212] Removed worker 0100ffffffffffffffffffffffffffffffffffff
+I1108 02:56:23.433053 20980  9820 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 20980

@@ -1,0 +1,23 @@
+Log file created at: 2021/11/21 19:07:38
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1121 19:07:38.575114  4088  3436 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 4088
+I1121 19:07:38.604537  4088  3436 grpc_server.cc:74] worker server started, listening on port 12592.
+I1121 19:07:38.615540  4088  3436 core_worker.cc:318] Initializing worker at address: 192.168.11.46:12592, worker ID f0a68851fd639b7719ab2ef28e4d5f674e8fe0f5, raylet f8690bbd311bce5f5333b19dfed6c7feae030828
+I1121 19:07:38.620540  4088  3436 redis_client.cc:141] RedisClient connected.
+I1121 19:07:38.620540  4088  3436 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:38.621541  4088  3436 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1121 19:07:38.622541  4088  3436 core_worker.cc:189] Worker f0a68851fd639b7719ab2ef28e4d5f674e8fe0f5 is created.
+I1121 19:07:38.623543  4088  3436 global_state_accessor.cc:25] Redis server address = 192.168.11.46:6379, is test flag = 0
+I1121 19:07:38.623543  4088 18464 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 1
+W1121 19:07:38.623543  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.730875  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.838917  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.948309  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:39.056253  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:39.165724  4088  3436 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1121 19:07:39.275597  4088  3436 redis_client.cc:141] RedisClient connected.
+I1121 19:07:39.275597  4088  3436 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:39.276607  4088  3436 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1121 19:07:41.283735  4088  3436 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 8c4524fc90dfd48fbcce9065013e000000000000
+I1121 19:09:09.393074  4088 18464 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 0

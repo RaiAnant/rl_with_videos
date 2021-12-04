@@ -1,0 +1,17 @@
+Log file created at: 2021/11/10 21:48:27
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 21:48:27.340440  4172 16988 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 4172
+I1110 21:48:27.344441  4172 16988 grpc_server.cc:74] worker server started, listening on port 1636.
+I1110 21:48:27.352442  4172 16988 core_worker.cc:318] Initializing worker at address: 10.16.234.175:1636, worker ID 65c5e2d55c5aef696de71381fcff00113dcbcb94, raylet 58a28ee96cb5849edcb5189b7f2828bc976c2375
+I1110 21:48:27.364866  4172 16988 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.365880  4172 16988 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.366933  4172 16988 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 21:48:27.370033  4172 16988 core_worker.cc:189] Worker 65c5e2d55c5aef696de71381fcff00113dcbcb94 is created.
+I1110 21:48:27.371064  4172 16988 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 21:48:27.373090  4172  3540 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 1
+I1110 21:48:27.376220  4172 16988 redis_client.cc:141] RedisClient connected.
+I1110 21:48:27.377230  4172 16988 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 21:48:27.378316  4172 16988 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 21:48:29.342679  4172 16988 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: ad9f7a2504b6c05b9971540bf474000000000000
+I1110 22:06:26.158200  4172  3540 service_based_accessor.cc:739] Received notification for node id = 58a28ee96cb5849edcb5189b7f2828bc976c2375, IsAlive = 0

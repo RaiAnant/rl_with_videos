@@ -1,0 +1,21 @@
+Log file created at: 2021/11/21 19:07:38
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1121 19:07:38.543942 16020 19636 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 16020
+I1121 19:07:38.546842 16020 19636 grpc_server.cc:74] worker server started, listening on port 12541.
+I1121 19:07:38.549845 16020 19636 core_worker.cc:318] Initializing worker at address: 192.168.11.46:12541, worker ID 8dac79e7cee6fbaac3c2d00b5797f5ffd49786b8, raylet f8690bbd311bce5f5333b19dfed6c7feae030828
+I1121 19:07:38.553834 16020 19636 redis_client.cc:141] RedisClient connected.
+I1121 19:07:38.553834 16020 19636 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:38.554566 16020 19636 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1121 19:07:38.555583 16020 19636 core_worker.cc:189] Worker 8dac79e7cee6fbaac3c2d00b5797f5ffd49786b8 is created.
+I1121 19:07:38.555583 16020 19636 global_state_accessor.cc:25] Redis server address = 192.168.11.46:6379, is test flag = 0
+I1121 19:07:38.557572 16020 14804 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 1
+I1121 19:07:38.558584 16020 19636 redis_client.cc:141] RedisClient connected.
+I1121 19:07:38.558584 16020 19636 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:38.558584 16020 19636 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1121 19:07:40.560885 16020 19636 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 82f62611059413af600e4e37f7c3000000000000
+I1121 19:07:40.561885 16020 19636 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1121 19:07:45.729815 16020 19636 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1121 19:09:08.868710 16020 19636 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1121 19:09:08.868710 16020 19636 core_worker.cc:212] Removed worker 8dac79e7cee6fbaac3c2d00b5797f5ffd49786b8
+I1121 19:09:08.872721 16020 19636 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 16020

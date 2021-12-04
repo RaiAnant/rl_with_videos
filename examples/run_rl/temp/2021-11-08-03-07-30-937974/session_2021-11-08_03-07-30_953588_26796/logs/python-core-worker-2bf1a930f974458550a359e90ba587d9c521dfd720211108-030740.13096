@@ -1,0 +1,20 @@
+Log file created at: 2021/11/08 03:07:40
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1108 03:07:40.895889 13096 26700 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 13096
+I1108 03:07:40.927692 13096 26700 grpc_server.cc:74] worker server started, listening on port 4200.
+I1108 03:07:40.942600 13096 26700 core_worker.cc:318] Initializing worker at address: 10.47.4.64:4200, worker ID 2bf1a930f974458550a359e90ba587d9c521dfd7, raylet f9820ddc9e9a20b376640bdcb3e472d96add7e9b
+W1108 03:07:40.946574 13096 26700 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1108 03:07:41.064837 13096 26700 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1108 03:07:41.180120 13096 26700 redis_client.cc:141] RedisClient connected.
+I1108 03:07:41.180120 13096 26700 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1108 03:07:41.182107 13096 26700 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1108 03:07:41.187076 13096 26700 core_worker.cc:189] Worker 2bf1a930f974458550a359e90ba587d9c521dfd7 is created.
+I1108 03:07:41.187076 13096 26700 global_state_accessor.cc:25] Redis server address = 10.47.4.64:6379, is test flag = 0
+I1108 03:07:41.190057 13096 17796 service_based_accessor.cc:739] Received notification for node id = f9820ddc9e9a20b376640bdcb3e472d96add7e9b, IsAlive = 1
+W1108 03:07:41.190057 13096 26700 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1108 03:07:41.311302 13096 26700 redis_client.cc:141] RedisClient connected.
+I1108 03:07:41.311302 13096 26700 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1108 03:07:41.313290 13096 26700 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1108 03:07:43.292599 13096 26700 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: c1a9424ae00de91735a36d6c4cfd000000000000
+I1108 03:23:48.511580 13096 17796 service_based_accessor.cc:739] Received notification for node id = f9820ddc9e9a20b376640bdcb3e472d96add7e9b, IsAlive = 0

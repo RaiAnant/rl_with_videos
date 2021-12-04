@@ -1,0 +1,44 @@
+Ray worker pid: 11820
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:528: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:529: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:530: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+C:\anaconda3\envs\RLV\lib\site-packages\tensorflow\python\framework\dtypes.py:535: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2021-10-17 20:21:22.009966: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2021-10-17 20:21:22.327885: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 3060 Laptop GPU major: 8 minor: 6 memoryClockRate(GHz): 1.425
+pciBusID: 0000:01:00.0
+totalMemory: 6.00GiB freeMemory: 5.04GiB
+2021-10-17 20:21:22.328682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2021-10-17 21:37:25,670	ERROR import_thread.py:93 -- ImportThread: Connection closed by server.
+2021-10-17 21:37:48.701426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-10-17 21:37:48.701454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2021-10-17 21:37:48.701462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2021-10-17 21:37:48.704212: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4761 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-10-17 21:37:48,710	INFO trainable.py:181 -- _setup took 4586.715 seconds. If your trainable is slow to initialize, consider setting reuse_actors=True to reduce actor creation overheads.
+F1017 21:38:15.115752 11820  5484 service_based_gcs_client.cc:104]  Check failed: num_attempts < RayConfig::instance().gcs_service_connect_retries() No entry found for GcsServerAddress
+*** Check failure stack trace: ***
+    @   00007FFB24BF4A4C  public: __cdecl google::LogMessage::~LogMessage(void) __ptr64
+    @   00007FFB24A69914  public: virtual __cdecl google::NullStreamFatal::~NullStreamFatal(void) __ptr64
+    @   00007FFB24AB3317  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24AB2A20  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24AB8EC1  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24C39ACC  void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @   00007FFB24C398EF  void __cdecl google::InstallFailureWriter(void (__cdecl*)(char const * __ptr64,int))
+    @   00007FFB24A0D636  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFB249DE4FD  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFB24A87970  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24A81510  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24A8145B  public: void __cdecl google::NullStreamFatal::`vbase destructor'(void) __ptr64
+    @   00007FFB24A13D41  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFB249DE3F9  public: class google::LogMessageVoidify & __ptr64 __cdecl google::LogMessageVoidify::operator=(class google::LogMessageVoidify const & __ptr64) __ptr64
+    @   00007FFBD5451BB2  _configthreadlocale
+    @   00007FFBD5A37034  BaseThreadInitThunk
+    @   00007FFBD76E2651  RtlUserThreadStart

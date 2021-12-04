@@ -82,7 +82,7 @@ class SAC(RLAlgorithm):
         self._Q_targets = tuple(tf.keras.models.clone_model(Q) for Q in self._Qs)
 
 
-        self._pool = pool
+        self._pool = pool  #SimpleReplayPool class object
         self._plotter = plotter
 
         self._policy_lr = lr
@@ -90,7 +90,7 @@ class SAC(RLAlgorithm):
         self._q_discrim_lr = lr
 
         self._reward_scale = reward_scale
-        self._target_entropy = (
+        self._target_entropy = (   #what is this?
             -np.prod(self._training_environment.action_space.shape)
             if target_entropy == 'auto'
             else target_entropy)
@@ -358,7 +358,7 @@ class SAC(RLAlgorithm):
 
         feed_dict = self._get_feed_dict(iteration, batch)
 #        print("training ops:", self._training_ops)
-        self._session.run(self._training_ops, feed_dict)
+        self._session.run(self._training_ops, feed_dict) #doubt
 
         if iteration % self._target_update_interval == 0:
             # Run target ops here.
@@ -378,7 +378,7 @@ class SAC(RLAlgorithm):
         flattened_image = tf.reshape(image, (-1, original_shape))
         return flattened_image
 
-    def _get_feed_dict(self, iteration, batch):
+    def _get_feed_dict(self, iteration, batch):  #doubt
         """Construct TensorFlow feed_dict from sample batch."""
 
         feed_dict = {

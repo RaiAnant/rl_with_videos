@@ -84,7 +84,7 @@ class SimpleSampler(BaseSampler):
             self._n_episodes += 1
         else:
             self._current_observation = next_observation
-
+        # video_pool.add(self._current_path)
         return next_observation, reward, terminal, info
 
     def random_batch(self, batch_size=None, **kwargs):

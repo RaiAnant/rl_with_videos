@@ -1,0 +1,20 @@
+Log file created at: 2021/10/17 21:59:58
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1017 21:59:58.105376 19160 18568 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 19160
+I1017 22:00:01.150713 19160 18568 grpc_server.cc:74] driver server started, listening on port 25899.
+I1017 22:00:01.160715 19160 18568 core_worker.cc:318] Initializing worker at address: 192.168.0.26:25899, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet 06532b299d642d4d28596d136799663a1bbbbeba
+I1017 22:00:01.170717 19160 18568 redis_client.cc:141] RedisClient connected.
+I1017 22:00:01.170717 19160 18568 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 22:00:01.188721 19160 18568 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1017 22:00:01.223729 19160 18568 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1017 22:00:01.224732 19160 18568 global_state_accessor.cc:25] Redis server address = 192.168.0.26:6379, is test flag = 0
+I1017 22:00:01.228730 19160  2612 service_based_accessor.cc:739] Received notification for node id = 06532b299d642d4d28596d136799663a1bbbbeba, IsAlive = 1
+I1017 22:00:01.231731 19160 18568 redis_client.cc:141] RedisClient connected.
+I1017 22:00:01.231731 19160 18568 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1017 22:00:01.233731 19160 18568 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1017 22:00:03.332969 19160 18568 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: 66859fdf2b0c082ebc82cc10c473000000000000
+I1017 22:00:05.943812 19160  2612 direct_task_transport.cc:86] Connected to 192.168.0.26:30744
+I1017 22:00:23.326386 19160  2612 direct_actor_transport.cc:134] Resetting caller starts at for actor 45b95b1c0100 from 0 to 0
+I1017 22:00:23.328387 19160  2612 core_worker.cc:1305] received notification on actor, state: ALIVE, actor_id: 45b95b1c0100, ip address: 192.168.0.26, port: 30744, worker_id: b5bf7777ecb33af6f257c9bcf5cedd281c958698, raylet_id: 06532b299d642d4d28596d136799663a1bbbbeba
+E1017 22:00:55.654213 19160  2612 task_manager.cc:320] Task failed: IOError: 2: Stream removed: Type=ACTOR_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=examples.run_rl.main, class_name=ExperimentRunnerRL, function_name=train, function_hash=}, task_id=ef0a6c221819881c45b95b1c0100, job_id=0100, num_args=0, num_returns=2, actor_task_spec={actor_id=45b95b1c0100, actor_caller_id=ffffffffffffffffffffffff0100, actor_counter=0}

@@ -1,0 +1,21 @@
+Log file created at: 2021/11/21 19:05:37
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1121 19:05:37.061655 19536 11724 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 19536
+I1121 19:05:37.065632 19536 11724 grpc_server.cc:74] worker server started, listening on port 1259.
+I1121 19:05:37.069149 19536 11724 core_worker.cc:318] Initializing worker at address: 192.168.11.46:1259, worker ID c1b78011cefd45d91b9322640702f4ea9d63e94f, raylet 71105aa06474a51d9148aa5f0c87291eae530c56
+I1121 19:05:37.072149 19536 11724 redis_client.cc:141] RedisClient connected.
+I1121 19:05:37.072149 19536 11724 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:05:37.073141 19536 11724 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1121 19:05:37.074141 19536 11724 core_worker.cc:189] Worker c1b78011cefd45d91b9322640702f4ea9d63e94f is created.
+I1121 19:05:37.074141 19536 11724 global_state_accessor.cc:25] Redis server address = 192.168.11.46:6379, is test flag = 0
+I1121 19:05:37.075140 19536 18328 service_based_accessor.cc:739] Received notification for node id = 71105aa06474a51d9148aa5f0c87291eae530c56, IsAlive = 1
+I1121 19:05:37.076139 19536 11724 redis_client.cc:141] RedisClient connected.
+I1121 19:05:37.076139 19536 11724 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:05:37.077140 19536 11724 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1121 19:05:39.082798 19536 11724 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: f3c4f97a59fc79fd313c3d03505d000000000000
+I1121 19:05:39.119815 19536 11724 core_worker.cc:1528] Creating actor: 45b95b1c0100
+I1121 19:05:44.523464 19536 11724 direct_actor_transport.cc:340] Actor creation task finished, task_id: ffffffffffffffff45b95b1c0100, actor_id: 45b95b1c0100
+I1121 19:05:45.884044 19536 11724 core_worker.cc:510] Exit signal (intentional) received, this process will exit after all outstanding tasks have finished
+I1121 19:05:45.884044 19536 11724 core_worker.cc:212] Removed worker c1b78011cefd45d91b9322640702f4ea9d63e94f
+I1121 19:05:45.887054 19536 11724 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 19536

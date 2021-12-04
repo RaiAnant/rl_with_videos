@@ -1,0 +1,22 @@
+Log file created at: 2021/11/10 18:53:30
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1110 18:53:30.545058 15648 19440 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 15648
+I1110 18:53:33.644506 15648 19440 grpc_server.cc:74] driver server started, listening on port 32942.
+I1110 18:53:33.653508 15648 19440 core_worker.cc:318] Initializing worker at address: 10.16.234.175:32942, worker ID 0100ffffffffffffffffffffffffffffffffffff, raylet a1545e46c8b5147b8320085dbc88fabcb89aeec1
+I1110 18:53:33.664512 15648 19440 redis_client.cc:141] RedisClient connected.
+I1110 18:53:33.666512 15648 19440 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 18:53:33.668512 15648 19440 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1110 18:53:33.673513 15648 19440 core_worker.cc:189] Worker 0100ffffffffffffffffffffffffffffffffffff is created.
+I1110 18:53:33.676514 15648 19440 global_state_accessor.cc:25] Redis server address = 10.16.234.175:6379, is test flag = 0
+I1110 18:53:33.677515 15648  3300 service_based_accessor.cc:739] Received notification for node id = a1545e46c8b5147b8320085dbc88fabcb89aeec1, IsAlive = 1
+W1110 18:53:33.682515 15648 19440 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1110 18:53:33.789698 15648 19440 redis_client.cc:141] RedisClient connected.
+I1110 18:53:33.789698 15648 19440 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1110 18:53:33.798702 15648 19440 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1110 18:53:35.886590 15648 19440 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: b840348ff1a25194bacf38471d14000000000000
+I1110 18:53:43.876276 15648  3300 direct_task_transport.cc:86] Connected to 10.16.234.175:33021
+I1110 18:53:59.943334 15648  3300 direct_actor_transport.cc:134] Resetting caller starts at for actor 45b95b1c0100 from 0 to 0
+I1110 18:53:59.945338 15648  3300 core_worker.cc:1305] received notification on actor, state: ALIVE, actor_id: 45b95b1c0100, ip address: 10.16.234.175, port: 33021, worker_id: 13443e10fa743bf47ce56c3cad5147964c06f8a7, raylet_id: a1545e46c8b5147b8320085dbc88fabcb89aeec1
+I1110 19:12:58.742393 15648 19440 core_worker.cc:212] Removed worker 0100ffffffffffffffffffffffffffffffffffff
+I1110 19:12:58.910094 15648 19440 core_worker.cc:136] Destructing CoreWorkerProcess. pid: 15648

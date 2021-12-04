@@ -1,0 +1,23 @@
+Log file created at: 2021/11/21 19:07:38
+Running on machine: LAPTOP-JGANR1VS
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1121 19:07:38.590559 19692 11732 core_worker.cc:118] Constructing CoreWorkerProcess. pid: 19692
+I1121 19:07:38.604537 19692 11732 grpc_server.cc:74] worker server started, listening on port 12602.
+I1121 19:07:38.615540 19692 11732 core_worker.cc:318] Initializing worker at address: 192.168.11.46:12602, worker ID e7a1f415071f4d8a387ff4ee8f6fdf7c5b91fef4, raylet f8690bbd311bce5f5333b19dfed6c7feae030828
+W1121 19:07:38.617540 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.731884 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.838917 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:38.949308 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:39.056253 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+W1121 19:07:39.164717 19692 11732 redis_context.cc:307] Failed to connect to Redis, retrying.
+I1121 19:07:39.276607 19692 11732 redis_client.cc:141] RedisClient connected.
+I1121 19:07:39.276607 19692 11732 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:39.276607 19692 11732 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+I1121 19:07:39.278960 19692 11732 core_worker.cc:189] Worker e7a1f415071f4d8a387ff4ee8f6fdf7c5b91fef4 is created.
+I1121 19:07:39.278960 19692 11732 global_state_accessor.cc:25] Redis server address = 192.168.11.46:6379, is test flag = 0
+I1121 19:07:39.279937 19692 15856 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 1
+I1121 19:07:39.280936 19692 11732 redis_client.cc:141] RedisClient connected.
+I1121 19:07:39.280936 19692 11732 redis_gcs_client.cc:88] RedisGcsClient Connected.
+I1121 19:07:39.280936 19692 11732 service_based_gcs_client.cc:75] ServiceBasedGcsClient Connected.
+W1121 19:07:41.283735 19692 11732 reference_count.cc:196] Tried to decrease ref count for nonexistent object ID: dafa1b8a9e2b853620b1ba02c3c4000000000000
+I1121 19:09:09.393074 19692 15856 service_based_accessor.cc:739] Received notification for node id = f8690bbd311bce5f5333b19dfed6c7feae030828, IsAlive = 0
