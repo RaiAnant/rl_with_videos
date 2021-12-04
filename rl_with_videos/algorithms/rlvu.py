@@ -48,7 +48,7 @@ class RLVU(SAC):
         self._domain_shift_discriminator_weight = domain_shift_discriminator_weight
         
         self._video_understanding = True
-        self._video_understanding_model = LRCNs((None, 6), 2)
+        self._video_understanding_model = LRCNs((self._shared_preprocessor_model, 6), 2)
         self._video_data_pool = video_data_pool
         self._video_loss_scale = video_loss_scale
         self._video_loss_lr = 3e-4

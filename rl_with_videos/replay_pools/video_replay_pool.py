@@ -35,10 +35,18 @@ class VideoReplayPool(FlexibleReplayPool):
         fields = {
             **{
                 'sequences': {
-                    'shape': (30, 6,),
+                    'shape': (30, 6912, ),
                     'dtype': 'float32'
                 },
                 'done': {
+                    'shape': (1, ),
+                    'dtype': 'float32'
+                },
+                'rewards': {
+                    'shape': (30, ),
+                    'dtype': 'float32'
+                },
+                'human': {
                     'shape': (1, ),
                     'dtype': 'float32'
                 },
