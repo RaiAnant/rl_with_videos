@@ -7,6 +7,7 @@ from collections import OrderedDict
 from rl_with_videos.algorithms.sac import SAC
 from rl_with_videos.models.utils import flatten_input_structure
 from rl_with_videos.video_understanding.LRCNs import LRCNs
+from rl_with_videos.samplers.simple_sampler_vu import SimpleSamplerVU
 
 
 class RLVU(SAC):
@@ -48,7 +49,7 @@ class RLVU(SAC):
         self._domain_shift_discriminator_weight = domain_shift_discriminator_weight
         
         self._video_understanding = True
-        self._video_understanding_model = LRCNs((None, 6), 2)
+        self._video_understanding_model = LRCNs((30, 6912), 2, self._shared_preprocessor_model)
         self._video_data_pool = video_data_pool
         self._video_loss_scale = video_loss_scale
         self._video_loss_lr = 3e-4
@@ -82,7 +83,8 @@ class RLVU(SAC):
         self._init_actor_update()
         self._init_critic_update()
         self._init_diagnostics_ops()
-        self.sampler._init_video_data_pool(self._video_data_pool)
+        if isinstance(self.sampler, SimpleSamplerVU):
+            self.sampler._init_video_data_pool(self._video_data_pool)
 
 
     def _init_placeholders(self):
@@ -152,7 +154,7 @@ class RLVU(SAC):
         if self._video_data_pool:
             video_placeholders = {
                 'videos_no_aug': tf.placeholder(tf.float32,
-                                                  shape=(None, 30, 6),
+                                                  shape=(None, 30, 6912),
                                                   name="video_no_aug")
                 ,
                 'done': tf.placeholder(
@@ -178,7 +180,7 @@ class RLVU(SAC):
             'action_free': action_free_batch
         }
         if self._video_understanding:
-            video_batch_size = 32
+            video_batch_size = 128
             combined_batch['video_data'] = self._video_data_pool.random_batch(video_batch_size)
 
         return combined_batch

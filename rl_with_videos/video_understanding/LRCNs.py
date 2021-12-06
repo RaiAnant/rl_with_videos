@@ -1,4 +1,3 @@
-from tensorflow_docs.vis import embed
 from tensorflow import keras
 from tensorflow.keras import backend as K
 import tensorflow as tf
@@ -8,7 +7,7 @@ def LRCNs(
         output_size,
         feature_extractor = None,
         hidden_state_num = 2,
-        hidden_state_size = (6, 6),
+        hidden_state_size = (64, 16),
         *args,
         **kwargs):
     video = keras.layers.Input(shape=input_shapes,name='video_input')

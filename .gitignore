@@ -24,6 +24,8 @@ parts/
 sdist/
 var/
 wheels/
+dataset/
+examples/run_rl/temp/
 *.egg-info/
 .installed.cfg
 *.egg

@@ -50,7 +50,11 @@ class SimpleSamplerVU(SimpleSampler):
 
             self.pool.add_path(last_path)
             # import pdb; pdb.set_trace() #breakpoint
-            self.video_replay_pool.add_sample({'sequences' :last_path['observations'][-30:], 'done': np.array([1 if terminal else 0])})
+            self.video_replay_pool.add_sample({'sequences' :last_path['observations'][-30:], 
+                                                'done':np.array([1 if terminal else 0]),
+                                                'rewards':np.squeeze(np.array(last_path['rewards'][-30:]), axis = -1),
+                                                'human':  np.array([0]) 
+                                                })
             self._last_n_paths.appendleft(last_path)
 
             self._max_path_return = max(self._max_path_return,

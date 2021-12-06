@@ -46,6 +46,7 @@ class SimpleSampler(BaseSampler):
         ])[0]
 
         next_observation, reward, terminal, info = self.env.step(action)
+        
         self._path_length += 1
         self._path_return += reward
         self._total_samples += 1
@@ -64,6 +65,7 @@ class SimpleSampler(BaseSampler):
             self._current_path[key].append(value)
 
         if terminal or self._path_length >= self._max_path_length:
+
             last_path = {
                 field_name: np.array(values)
                 for field_name, values in self._current_path.items()

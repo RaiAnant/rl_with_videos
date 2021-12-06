@@ -49,6 +49,7 @@ class FlexibleReplayPool(ReplayPool):
             key: value[None, ...]
             for key, value in sample.items()
         }
+        # import pdb; pdb.set_trace() #breakpoint
         self.add_samples(samples)
 
     def add_samples(self, samples):
@@ -57,7 +58,6 @@ class FlexibleReplayPool(ReplayPool):
 
         index = np.arange(
             self._pointer, self._pointer + num_samples) % self._max_size
-
         for field_name in self.field_names:
             default_value = (
                 self.fields_attrs[field_name].get('default_value', 0.0))
@@ -144,7 +144,7 @@ class FlexibleReplayPool(ReplayPool):
         num_samples = latest_samples[key].shape[0]
         for field_name, data in latest_samples.items():
             assert data.shape[0] == num_samples, data.shape
-
+        
         self.add_samples(latest_samples)
         self._samples_since_save = 0
 
