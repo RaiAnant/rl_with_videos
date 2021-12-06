@@ -3,6 +3,8 @@ from gym.spaces import Dict
 from .flexible_replay_pool import FlexibleReplayPool
 from .simple_replay_pool import normalize_observation_fields
 
+import numpy as np
+
 class VideoReplayPool(FlexibleReplayPool):
     def __init__(self,
                  observation_space,
@@ -64,6 +66,52 @@ class VideoReplayPool(FlexibleReplayPool):
             for k in self.fields.keys():
                 self.fields[k] = self.fields[k][self._size-max_demo_length:self._size]
             self._size = max_demo_length
+    
+
+    def random_indices(self, batch_size):
+        if self._size == 0: return np.arange(0, 0)
+
+        human_index = np.argwhere(self.fields['human'] == [1.])[...,0]
+
+        return np.concatenate((np.random.choice(human_index, int(batch_size/2), replace=False), np.random.randint(0, self._size, int(batch_size/2))),axis=0)
+
+
+        # if(agent_index.shape[0] == 0):
+        #     return np.random.choice(human_index, batch_size, replace=False)
+        # else:
+        #     return np.concatenate((np.random.choice(human_index, int(batch_size/2), replace=False), np.random.choice(agent_index, int(batch_size/2), replace=False)),axis=0)
+
+        # return np.random.randint(0, self._size, batch_size)
+
+    def random_batch(self, batch_size, field_name_filter=None, **kwargs):
+        random_indices = self.random_indices(batch_size)
+        
+        return self.batch_by_indices(
+            random_indices, field_name_filter=field_name_filter, **kwargs)
+    
+    def batch_by_indices(self, indices, field_name_filter=None):
+        if np.any(indices % self._max_size > self.size):
+            raise ValueError(
+                "Tried to retrieve batch with indices greater than current"
+                " size")
+
+        field_names = self.field_names
+        if field_name_filter is not None:
+            field_names = self.filter_fields(
+                field_names, field_name_filter)
+        
+        # print("********************************")
+        # print(field_names)
+        # print("********************************")
+        # for field_name in field_names:
+        #     print("********************************")
+        #     print(self.fields[field_name][indices])
+        #     print("********************************")
+
+        return {
+            field_name: self.fields[field_name][indices]
+            for field_name in field_names
+        }
 
 
     """ The action-free replay pool should not be added to during runtime
