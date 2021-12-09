@@ -4,6 +4,7 @@ from .flexible_replay_pool import FlexibleReplayPool
 from .simple_replay_pool import normalize_observation_fields
 
 import numpy as np
+import random
 
 class VideoReplayPool(FlexibleReplayPool):
     def __init__(self,
@@ -70,10 +71,12 @@ class VideoReplayPool(FlexibleReplayPool):
 
     def random_indices(self, batch_size):
         if self._size == 0: return np.arange(0, 0)
+        
+        return np.random.randint(0, self._size, batch_size)
 
-        human_index = np.argwhere(self.fields['human'] == [1.])[...,0]
+        # human_index = np.argwhere(self.fields['human'] == [1.])[...,0]
 
-        return np.concatenate((np.random.choice(human_index, int(batch_size/2), replace=False), np.random.randint(0, self._size, int(batch_size/2))),axis=0)
+        # return np.concatenate((np.random.choice(human_index, int(batch_size/2), replace=False), np.random.randint(0, self._size, int(batch_size/2))),axis=0)
 
 
         # if(agent_index.shape[0] == 0):
@@ -107,11 +110,17 @@ class VideoReplayPool(FlexibleReplayPool):
         #     print("********************************")
         #     print(self.fields[field_name][indices])
         #     print("********************************")
-
-        return {
+        
+        output = {
             field_name: self.fields[field_name][indices]
             for field_name in field_names
         }
+        video_length = 30
+        input_length = 10
+        start_point = random.randrange(0, video_length-input_length)
+        output['sequences'] = output['sequences'][:,start_point:start_point+input_length,:]
+
+        return output
 
 
     """ The action-free replay pool should not be added to during runtime

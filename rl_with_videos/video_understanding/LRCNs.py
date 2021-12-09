@@ -7,7 +7,7 @@ def LRCNs(
         output_size,
         feature_extractor = None,
         hidden_state_num = 2,
-        hidden_state_size = (64, 16),
+        hidden_state_size = (256, 64),
         *args,
         **kwargs):
     video = keras.layers.Input(shape=input_shapes,name='video_input')

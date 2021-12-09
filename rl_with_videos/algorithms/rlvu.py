@@ -49,7 +49,7 @@ class RLVU(SAC):
         self._domain_shift_discriminator_weight = domain_shift_discriminator_weight
         
         self._video_understanding = True
-        self._video_understanding_model = LRCNs((30, 6912), 2, self._shared_preprocessor_model)
+        self._video_understanding_model = LRCNs((10, 6912), 2, self._shared_preprocessor_model)
         self._video_data_pool = video_data_pool
         self._video_loss_scale = video_loss_scale
         self._video_loss_lr = 3e-4
@@ -154,7 +154,7 @@ class RLVU(SAC):
         if self._video_data_pool:
             video_placeholders = {
                 'videos_no_aug': tf.placeholder(tf.float32,
-                                                  shape=(None, 30, 6912),
+                                                  shape=(None, 10, 6912),
                                                   name="video_no_aug")
                 ,
                 'done': tf.placeholder(
