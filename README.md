@@ -1,4 +1,4 @@
-# RLMU
+# RLMU: Reinforcement Learning with Self-supervisedHuman Motion Analysis
 
 
 The baseline implementation is based on [softlearning](https://github.com/rail-berkeley/softlearning).
