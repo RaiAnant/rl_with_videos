@@ -1,15 +1,9 @@
-# rl-with-videos
-
-This repository is the official implementation of the following paper:
-
-**Reinforcement Learning with Videos:Combining Offline Observations with Interaction**<br/>
-Karl Schmeckpeper, Oleh Rybkin, Kostas Daniilidis, Sergey Levine, and Chelsea Finn <br/>
-[Conference on Robot Learning](https://www.robot-learning.org/) 2020 <br/>
-[Website](https://sites.google.com/view/rl-with-videos) | [Video](https://www.youtube.com/watch?v=aIWr4fhzPFA) | [arXiv](https://arxiv.org/abs/2011.06507)
+# RLMU
 
 
+The baseline implementation is based on [softlearning](https://github.com/rail-berkeley/softlearning).
 
-This implementation is based on [softlearning](https://github.com/rail-berkeley/softlearning).
+Experiment results are here: [link](https://drive.google.com/drive/folders/19qjlR42c-1s-S--AjPLdIxRzvsyuJ_FZ?usp=sharing)
 
 
 # Installation
